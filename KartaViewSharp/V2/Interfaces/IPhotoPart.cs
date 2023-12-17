@@ -6,11 +6,11 @@ public interface IPhotoPart
 {
     Task<SequenceResponse> RetrievePhotoParts();
 
-    Task<SequenceResponse> CreateANewPhotoPart();
+    Task<SequenceResponse> CreateANewPhotoPart(string authToken);
 
-    Task<SequenceResponse> UpdateTheDetailsOfAPhotoPart();
+    Task<SequenceResponse> UpdateTheDetailsOfAPhotoPart(int photoPartId, string authToken);
 
-    Task<SequenceResponse> GetTheDetailsOfAPhotoPart();
+    Task<SequenceResponse> GetTheDetailsOfAPhotoPart(int photoPartId);
 
-    Task<SequenceResponse> DeleteAPhotoPart();
+    Task<SequenceResponse> DeleteAPhotoPart(int photoPartId);
 }

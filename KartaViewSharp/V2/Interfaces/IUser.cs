@@ -8,7 +8,7 @@ public interface IUser
 
     Task<SequenceResponse> GetTheDetailsOfAUser(string userId);
 
-    Task<SequenceResponse> DeleteAUser();
+    Task<SequenceResponse> DeleteAUser(string userId);
 
-    Task<SequenceResponse> GetTheMetricsDetailsOfAUser();
+    Task<SequenceResponse> GetTheMetricsDetailsOfAUser(string userId);
 }

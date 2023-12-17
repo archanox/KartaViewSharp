@@ -6,11 +6,11 @@ public interface IVideo
 {
     Task<SequenceResponse> RetrieveVideos();
 
-    Task<SequenceResponse> CreateANewVideo();
+    Task<SequenceResponse> CreateANewVideo(string authToken);
 
-    Task<SequenceResponse> UpdateTheDetailsOfAVideo();
+    Task<SequenceResponse> UpdateTheDetailsOfAVideo(int videoId, string authToken);
 
-    Task<SequenceResponse> GetTheDetailsOfAVideo();
+    Task<SequenceResponse> GetTheDetailsOfAVideo(int videoId);
 
-    Task<SequenceResponse> DeleteAVideo();
+    Task<SequenceResponse> DeleteAVideo(int videoId);
 }

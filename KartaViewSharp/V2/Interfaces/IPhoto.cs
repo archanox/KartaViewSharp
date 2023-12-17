@@ -6,13 +6,13 @@ public interface IPhoto
 {
     Task<SequenceResponse> RetrievePhotos();
 
-    Task<SequenceResponse> CreateANewPhoto();
+    Task<SequenceResponse> CreateANewPhoto(string authToken);
 
-    Task<SequenceResponse> GetTheDetailsOfAPhoto();
+    Task<SequenceResponse> GetTheDetailsOfAPhoto(int photoId);
 
-    Task<SequenceResponse> UpdateTheDetailsOfAPhoto();
+    Task<SequenceResponse> UpdateTheDetailsOfAPhoto(int photoId, string authToken);
 
-    Task<SequenceResponse> DeleteAPhoto();
+    Task<SequenceResponse> DeleteAPhoto(int photoId);
 
-    Task<SequenceResponse> RetrieveAllPhotoPartsBasedOnThePhotoId();
+    Task<SequenceResponse> RetrieveAllPhotoPartsBasedOnThePhotoId(int photoId);
 }

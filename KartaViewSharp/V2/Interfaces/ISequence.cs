@@ -1,5 +1,6 @@
 ﻿using KartaViewSharp.V2;
 using KartaViewSharp.V2.ResponseData;
+using NetTopologySuite.Geometries;
 
 namespace KartaViewSharp.V2.Interfaces;
 
@@ -9,27 +10,27 @@ public interface ISequence
 
     Task<SequenceResponse> CreateANewSequence();
 
-    Task<SequenceResponse> GetTheDetailsOfASequence();
+    Task<SequenceResponse> GetTheDetailsOfASequence(int sequenceId);
 
-    Task<SequenceResponse> UpdateTheDetailsOfASequence();
+    Task<SequenceResponse> UpdateTheDetailsOfASequence(int sequenceId, string authToken);
 
-    Task<SequenceResponse> DeleteASequence();
+    Task<SequenceResponse> DeleteASequence(int sequenceId);
 
-    Task<SequenceResponse> RetrievePhotosBasedOnTheSequenceId();
+    Task<SequenceResponse> RetrievePhotosBasedOnTheSequenceId(int sequenceId);
 
-    Task<SequenceResponse> RetrieveVideosBasedOnTheSequenceId();
+    Task<SequenceResponse> RetrieveVideosBasedOnTheSequenceId(int sequenceId);
 
-    Task<SequenceResponse> RetrieveSequenceRawdatasBasedOnSequenceId();
+    Task<SequenceResponse> RetrieveSequenceRawdatasBasedOnSequenceId(int sequenceId);
 
-    Task<SequenceResponse> RetrieveSequenceAttachmentsBasedOnSequenceId();
+    Task<SequenceResponse> RetrieveSequenceAttachmentsBasedOnSequenceId(int sequenceId);
 
-    Task<SequenceResponse> RetrieveSequenceBreakdownsBasedOnSequenceId();
+    Task<SequenceResponse> RetrieveSequenceBreakdownsBasedOnSequenceId(int sequenceId);
 
-    Task<SequenceResponse> RetrieveSequenceMetricsBasedOnSequenceId();
+    Task<SequenceResponse> RetrieveSequenceMetricsBasedOnSequenceId(int sequenceId);
 
-    Task<SequenceResponse> FindAndUpdateSequencesStatusWhenTheUploadIsFinished();
+    Task<SequenceResponse> FindAndUpdateSequencesStatusWhenTheUploadIsFinished(int sequenceId);
 
-    Task<SequenceResponse> GetMapMatchedTracksDataWithDifferentOutput();
+    Task<SequenceResponse> GetMapMatchedTracksDataWithDifferentOutput(int tileX, int tileY, int zoomLevel);
 
-    Task<SequenceResponse> GetAListOfAllTracksBasedOnASpecificBoundingBox();
+    Task<SequenceResponse> GetAListOfAllTracksBasedOnASpecificBoundingBox(Coordinate topLeft, Coordinate bottomRight, int zoomLevel);
 }

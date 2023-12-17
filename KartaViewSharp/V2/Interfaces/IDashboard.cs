@@ -16,19 +16,19 @@ public interface IDashboard
 
     Task<SequenceResponse> GetMetricsDataBasedOnMetricType();
 
-    Task<SequenceResponse> GetTheDetailsOfASequence();
+    Task<SequenceResponse> GetTheDetailsOfASequence(int dashboardSequenceId);
 
     Task<SequenceResponse> RetrieveSequences();
 
-    Task<SequenceResponse> GetTheDetailsOfAUser();
+    Task<SequenceResponse> GetTheDetailsOfAUser(int dashboardUserId);
 
     Task<SequenceResponse> RetrieveUsers();
 
-    Task<SequenceResponse> GetTheDetailsOfAnIssue();
+    Task<SequenceResponse> GetTheDetailsOfAnIssue(int dashboardIssueId);
 
     Task<SequenceResponse> RetrieveIssues();
 
-    Task<SequenceResponse> GetTheDetailsOfARegion();
+    Task<SequenceResponse> GetTheDetailsOfARegion(int dashboardRegionId);
 
     Task<SequenceResponse> RetrieveVisibleRegions();
 }

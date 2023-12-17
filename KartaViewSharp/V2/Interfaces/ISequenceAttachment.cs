@@ -6,11 +6,11 @@ public interface ISequenceAttachment
 {
     Task<SequenceResponse> RetrieveSequenceAttachments();
 
-    Task<SequenceResponse> CreateANewSequenceAttachment();
+    Task<SequenceResponse> CreateANewSequenceAttachment(string authToken);
 
-    Task<SequenceResponse> GetTheDetailsOfASequenceAttachment();
+    Task<SequenceResponse> GetTheDetailsOfASequenceAttachment(int sequenceAttachmentId);
 
-    Task<SequenceResponse> UpdateTheDetailsOfASequenceAttachment();
+    Task<SequenceResponse> UpdateTheDetailsOfASequenceAttachment(int sequenceAttachmentId, string authToken);
 
-    Task<SequenceResponse> DeleteASequenceAttachment();
+    Task<SequenceResponse> DeleteASequenceAttachment(int sequenceAttachementId);
 }

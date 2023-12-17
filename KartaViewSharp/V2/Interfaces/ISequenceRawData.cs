@@ -6,11 +6,11 @@ public interface ISequenceRawData
 {
     Task<SequenceResponse> RetrieveSequenceRawdatas();
 
-    Task<SequenceResponse> CreateANewSequenceRawdata();
+    Task<SequenceResponse> CreateANewSequenceRawdata(string authToken);
 
-    Task<SequenceResponse> UpdateTheDetailsOfASequenceRawdata();
+    Task<SequenceResponse> UpdateTheDetailsOfASequenceRawdata(int sequenceRawDataId, string authToken);
 
-    Task<SequenceResponse> GetTheDetailsOfASequenceRawdata();
+    Task<SequenceResponse> GetTheDetailsOfASequenceRawdata(int sequenceRawDataId);
 
-    Task<SequenceResponse> DeleteASequenceRawdata();
+    Task<SequenceResponse> DeleteASequenceRawdata(int sequenceRawDataId);
 }

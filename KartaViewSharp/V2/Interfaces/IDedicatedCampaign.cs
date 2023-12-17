@@ -6,23 +6,23 @@ public interface IDedicatedCampaign
 {
     Task<SequenceResponse> RetrieveDedicatedCampaigns();
 
-    Task<SequenceResponse> CreateANewDedicatedCampaign();
+    Task<SequenceResponse> CreateANewDedicatedCampaign(string authToken);
 
-    Task<SequenceResponse> UpdateTheDetailsOfADedicatedCampaign();
+    Task<SequenceResponse> UpdateTheDetailsOfADedicatedCampaign(int dedicatedCampaignId, string authToken);
 
-    Task<SequenceResponse> GetTheDetailsOfADedicatedCampaign();
+    Task<SequenceResponse> GetTheDetailsOfADedicatedCampaign(int dedicatedCampaignId);
 
-    Task<SequenceResponse> DeleteADedicatedCampaign();
+    Task<SequenceResponse> DeleteADedicatedCampaign(int dedicatedCampaignId);
 
-    Task<SequenceResponse> RetrieveTheCellsOfADedicatedCampaign();
+    Task<SequenceResponse> RetrieveTheCellsOfADedicatedCampaign(int dedicatedCampaignId);
 
-    Task<SequenceResponse> CreateANewDedicatedCampaignCell();
+    Task<SequenceResponse> CreateANewDedicatedCampaignCell(string authToken);
 
-    Task<SequenceResponse> UpdateTheDetailsOfADedicatedCampaignCell();
+    Task<SequenceResponse> UpdateTheDetailsOfADedicatedCampaignCell(int dedicatedCampaignCellId, string authToken);
 
-    Task<SequenceResponse> GetTheDetailsOfADedicatedCampaignCell();
+    Task<SequenceResponse> GetTheDetailsOfADedicatedCampaignCell(int dedicatedCampaignCellId);
 
-    Task<SequenceResponse> DeleteADedicatedCampaignCell();
+    Task<SequenceResponse> DeleteADedicatedCampaignCell(int dedicatedCampaignCellId);
 
-    Task<SequenceResponse> RetrieveIntervalMetricsUsedForDashboardCharts();
+    Task<SequenceResponse> RetrieveIntervalMetricsUsedForDashboardCharts(int dedicatedCampaignId);
 }

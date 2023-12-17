@@ -4,7 +4,7 @@ namespace KartaViewSharp.V2.Interfaces;
 
 public interface ISequenceBreakdown
 {
-    Task<SequenceResponse> GetTheBreakdownDetailsOfASequence();
+    Task<SequenceResponse> GetTheBreakdownDetailsOfASequence(int sequenceId);
 
     Task<SequenceResponse> RetrieveSequenceBreakdowns();
 }
