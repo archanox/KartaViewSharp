@@ -1,9 +1,4 @@
-﻿using System;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Text.Json.Serialization.Metadata;
-using KartaViewSharp.V2;
-using KartaViewSharp.V2.ResponseData;
+﻿using KartaViewSharp.V2;
 
 namespace KartaView
 {

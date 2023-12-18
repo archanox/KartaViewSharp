@@ -122,14 +122,7 @@ namespace KartaViewSharp.V2
 
 		public async Task<SequenceResponse> RetrieveSequences(SequenceQueryFilters filters)
 		{
-			var client = new RestClient(_baseUri,
-				configureSerialization: s => s.UseSystemTextJson(new JsonSerializerOptions
-				{
-					TypeInfoResolver = new MyJsonContext(new JsonSerializerOptions()
-					{
-						ReferenceHandler = ReferenceHandler.Preserve,
-					})
-				}));
+			var client = CreateRestClient<MyJsonContext>();
 
 			var request = new RestRequest("/sequence/");
 
@@ -137,6 +130,16 @@ namespace KartaViewSharp.V2
 
 			var response = await client.ExecuteGetAsync<SequenceResponse>(request);
 			return response.Data;
+		}
+
+		private static RestClient CreateRestClient<T>() where T : JsonSerializerContext, new()
+		{
+			return new RestClient(_baseUri,
+				configureSerialization: s => s.UseSystemTextJson(new JsonSerializerOptions
+				{
+					ReferenceHandler = ReferenceHandler.Preserve,
+					TypeInfoResolver = new T()
+				}));
 		}
 
 		public async Task<SequenceResponse> CreateANewSequence()
