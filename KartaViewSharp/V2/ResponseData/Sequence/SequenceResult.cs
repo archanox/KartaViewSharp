@@ -3,12 +3,12 @@ using System;
 using System.Text.Json.Serialization;
 using System.Text.Json.Serialization.Metadata;
 
-namespace KartaViewSharp.V2.ResponseData;
+namespace KartaViewSharp.V2.ResponseData.Sequence;
 
 public sealed class SequenceResult
 {
     [JsonPropertyName("data")]
-    public Data[] Data { get; set; }
+    public SequenceData[] Data { get; set; }
 
     /// <summary>
     /// In case there is more data to retrieve (records count &lt;= itemsPerPage), the property will return true.

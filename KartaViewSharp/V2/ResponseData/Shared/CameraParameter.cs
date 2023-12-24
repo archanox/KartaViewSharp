@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace KartaViewSharp.V2.ResponseData;
+namespace KartaViewSharp.V2.ResponseData.Shared;
 
 public class CameraParameter
 {
@@ -28,11 +28,11 @@ public class CameraParameter
     [JsonPropertyName("hFoV")]
     public double? HFov { get; set; }
 
-	///// <summary>
-	///// A value that controls the cropping and enlargement of images captured by the device. For example, a value of 2.0 doubles the size of an image’s subject (and halves the field of view).
-	///// </summary>
-	//[JsonPropertyName("vZF")]
- //   public double? VZf { get; set; }
+    ///// <summary>
+    ///// A value that controls the cropping and enlargement of images captured by the device. For example, a value of 2.0 doubles the size of an image’s subject (and halves the field of view).
+    ///// </summary>
+    //[JsonPropertyName("vZF")]
+    //   public double? VZf { get; set; }
 
     /// <summary>
     /// Aperture of the device, an opening through which light travels. The aperture and focal length of an optical system determine the cone angle of a bundle of rays that come to a focus in the image plane.

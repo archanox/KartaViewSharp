@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using ISO3166;
 using NetTopologySuite.Geometries;
 
@@ -123,7 +124,75 @@ public class SequenceQueryFilters : QueryFilters
     /// <summary>
     /// Unique identifier representing a specific region. Multiple regions can be provided.
     /// </summary>
-    public Region[] Region { get; set; }
+    public Region[]? Region { get; set; }
+}
+
+public class PhotoQueryFilters : QueryFilters
+{
+	/// <summary>
+	/// Unique identifier representing a specific sequence.
+	/// </summary>
+	public int? SequenceId { get; set; }
+
+	/// <summary>
+	/// Identifier representing a specific image index.
+	/// </summary>
+	public int? SequenceIndex { get; set; }
+
+    /// <summary>
+    /// Enum: "photo" "video" "vdb"
+    /// Example: searchSequenceType=vdb
+    /// Type of the sequence. Used only for findNearbyPhotos functionality.
+    /// </summary>
+    public SequenceType? SearchSequenceType { get; set; }
+
+	/// <summary>
+	/// The platform of the device that recorded the file. Used only for findNearbyPhotos functionality.
+	/// </summary>
+	public Platform? SearchPlatform { get; set; }
+
+	/// <summary>
+	/// The field of view type. Used only for findNearbyPhotos functionality.
+	/// </summary>
+	public FieldOfView? SearchFieldOfView { get; set; }
+
+	/// <summary>
+	/// Unique identifier of an user entity.
+	/// </summary>
+	public string[] UserIds { get; set; }
+
+    /// <summary>
+    /// Identifier representing a specific video index.
+    /// </summary>
+	public int? VideoIndex { get; set; }
+
+	/// <summary>
+	/// The distortion type of the photo.
+	/// </summary>
+	public Projection Projection { get; set; }
+
+    public Coordinate? Location { get; set; }
+
+    public string? Radius { get; set; }
+
+    public int? ZoomLevel { get; set; } = 18;
+}
+
+public enum Projection
+{
+	Plane,
+	Cylinder,
+	Sphere,
+	Fisheye,
+	Cube
+}
+
+public enum FieldOfView
+{
+	Plane,
+	_180,
+	_360,
+	DualFisheye
 }
 
 public enum SequenceType

@@ -1,5 +1,7 @@
-﻿using System.Text.Json;
+﻿using System;
+using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 using KartaViewSharp.V2.Interfaces;
 using KartaViewSharp.V2.ResponseData;
 using NetTopologySuite.Geometries;
@@ -12,31 +14,29 @@ namespace KartaViewSharp.V2
 	{
 		private const string _baseUri = "https://api.openstreetcam.org/2.0";
 
+		private static void AddPhotoFilters(PhotoQueryFilters filters, RestRequest request)
+		{
+			AddCommonFilters(filters, request);
+
+			//sequenceId
+			//sequenceIndex
+			//searchSequenceType
+			//searchPlatform
+			//searchFieldOfView
+			//userId
+			//videoIndex
+			//projection
+			//projectionYaw
+			//fieldOfView
+			//lat
+			//lng
+			//radius
+			//zoomLevel
+		}
+
 		private static void AddFilters(SequenceQueryFilters filters, RestRequest request)
 		{
-			if (filters.Id?.Length > 0)
-				request.AddQueryParameter("id", string.Join(',', filters.Id));
-
-			if (filters.IdInterval.HasValue)
-				request.AddQueryParameter("idInterval", $"{filters.IdInterval.Value.Start}-{filters.IdInterval.Value.End}");
-
-			if (filters.Page.HasValue)
-				request.AddQueryParameter("page", filters.Page.Value);
-
-			if (filters.ItemsPerPage != 40)
-				request.AddQueryParameter("itemsPerPage", filters.ItemsPerPage);
-
-			if (!string.IsNullOrWhiteSpace(filters.OrderBy))
-				request.AddQueryParameter("orderBy", filters.OrderBy);
-
-			if (filters.OrderDirection == OrderDirection.Descending)
-				request.AddQueryParameter("orderDirection", "desc");
-
-			if (filters.Units == Units.Imperial)
-				request.AddQueryParameter("units", "imperial");
-
-			if (filters.Join is { Length: > 0 })
-				request.AddQueryParameter("join", string.Join(',', filters.Join));
+			AddCommonFilters(filters, request);
 
 			if (filters.UserIds is { Length: > 0 })
 				request.AddQueryParameter("userId", string.Join(',', filters.UserIds));
@@ -120,9 +120,36 @@ namespace KartaViewSharp.V2
 				request.AddQueryParameter("region", string.Join(',', filters.Region));
 		}
 
+		private static void AddCommonFilters(QueryFilters filters, RestRequest request)
+		{
+			if (filters.Id?.Length > 0)
+				request.AddQueryParameter("id", string.Join(',', filters.Id));
+
+			if (filters.IdInterval.HasValue)
+				request.AddQueryParameter("idInterval", $"{filters.IdInterval.Value.Start}-{filters.IdInterval.Value.End}");
+
+			if (filters.Page.HasValue)
+				request.AddQueryParameter("page", filters.Page.Value);
+
+			if (filters.ItemsPerPage != 40)
+				request.AddQueryParameter("itemsPerPage", filters.ItemsPerPage);
+
+			if (!string.IsNullOrWhiteSpace(filters.OrderBy))
+				request.AddQueryParameter("orderBy", filters.OrderBy);
+
+			if (filters.OrderDirection == OrderDirection.Descending)
+				request.AddQueryParameter("orderDirection", "desc");
+
+			if (filters.Units == Units.Imperial)
+				request.AddQueryParameter("units", "imperial");
+
+			if (filters.Join is { Length: > 0 })
+				request.AddQueryParameter("join", string.Join(',', filters.Join));
+		}
+
 		public async Task<SequenceResponse> RetrieveSequences(SequenceQueryFilters filters)
 		{
-			var client = CreateRestClient<MyJsonContext>();
+			var client = CreateRestClient<SequenceResponseContext>();
 
 			var request = new RestRequest("/sequence/");
 
@@ -387,32 +414,44 @@ namespace KartaViewSharp.V2
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> RetrievePhotos()
+		public async Task<PhotoResponse> RetrievePhotos(PhotoQueryFilters filters)
+		{
+			if (filters.Id == null && filters.IdInterval == null && filters.SequenceId == null && filters.Location == null)
+			{
+				throw new ArgumentNullException("Restricted access on GET list if there isn't at least one query parameter provided from the following: id, idInterval, sequenceId, lat and lng.");
+			}
+
+			var client = CreateRestClient<PhotoResponseContext>();
+
+			var request = new RestRequest("/photo/");
+
+			AddPhotoFilters(filters, request);
+
+			var response = await client.ExecuteGetAsync<PhotoResponse>(request);
+			return response.Data;
+		}
+
+		public async Task<PhotoResponse> CreateANewPhoto(string authToken)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> CreateANewPhoto(string authToken)
+		public async Task<PhotoResponse> GetTheDetailsOfAPhoto(int photoId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> GetTheDetailsOfAPhoto(int photoId)
+		public async Task<PhotoResponse> UpdateTheDetailsOfAPhoto(int photoId, string authToken)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> UpdateTheDetailsOfAPhoto(int photoId, string authToken)
+		public async Task<PhotoResponse> DeleteAPhoto(int photoId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> DeleteAPhoto(int photoId)
-		{
-			throw new NotImplementedException();
-		}
-
-		public async Task<SequenceResponse> RetrieveAllPhotoPartsBasedOnThePhotoId(int photoId)
+		public async Task<PhotoResponse> RetrieveAllPhotoPartsBasedOnThePhotoId(int photoId)
 		{
 			throw new NotImplementedException();
 		}

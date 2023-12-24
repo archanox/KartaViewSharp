@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Text.Json.Serialization;
 
-namespace KartaViewSharp.V2.ResponseData;
+namespace KartaViewSharp.V2.ResponseData.Shared;
 
 public class ResponseStatus
 {

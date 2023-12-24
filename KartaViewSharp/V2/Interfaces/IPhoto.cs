@@ -4,15 +4,15 @@ namespace KartaViewSharp.V2.Interfaces;
 
 public interface IPhoto
 {
-    Task<SequenceResponse> RetrievePhotos();
+    Task<PhotoResponse> RetrievePhotos(PhotoQueryFilters filters);
 
-    Task<SequenceResponse> CreateANewPhoto(string authToken);
+    Task<PhotoResponse> CreateANewPhoto(string authToken);
 
-    Task<SequenceResponse> GetTheDetailsOfAPhoto(int photoId);
+    Task<PhotoResponse> GetTheDetailsOfAPhoto(int photoId);
 
-    Task<SequenceResponse> UpdateTheDetailsOfAPhoto(int photoId, string authToken);
+    Task<PhotoResponse> UpdateTheDetailsOfAPhoto(int photoId, string authToken);
 
-    Task<SequenceResponse> DeleteAPhoto(int photoId);
+    Task<PhotoResponse> DeleteAPhoto(int photoId);
 
-    Task<SequenceResponse> RetrieveAllPhotoPartsBasedOnThePhotoId(int photoId);
+    Task<PhotoResponse> RetrieveAllPhotoPartsBasedOnThePhotoId(int photoId);
 }
