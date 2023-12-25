@@ -1,5 +1,5 @@
 # KartaViewSharp
-![Nuget](https://img.shields.io/nuget/v/KartaViewSharp)
+![Nuget](https://img.shields.io/nuget/v/KartaViewSharp?link=https%3A%2F%2Fwww.nuget.org%2Fpackages%2FKartaViewSharp)
 
 ## Features
 
