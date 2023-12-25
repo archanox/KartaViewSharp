@@ -25,7 +25,7 @@ namespace KartaViewSharp.V2.ResponseData.Resources.Photo
         /// Datetime when the photo was added.
         /// </summary>
         [JsonPropertyName("dateAdded")]
-        [JsonConverter(typeof(KartaViewSharp.V2.ResponseData.Converters.StringAsDateTimeJsonConverter))]
+        [JsonConverter(typeof(StringAsDateTimeJsonConverter))]
         public DateTime DateAdded { get; set; }
 
         /// <summary>

@@ -11,10 +11,13 @@ public class StringAsBoolJsonConverter : JsonConverter<bool>
         JsonSerializerOptions options)
     {
         var value = reader.GetString();
-        if (value is null) return false;
-        if (value == "1") return true;
-        if (value == "0") return false;
-        return bool.Parse(value);
+        return value switch
+        {
+	        null => false,
+	        "1" => true,
+	        "0" => false,
+	        _ => bool.Parse(value)
+        };
     }
 
     public override void Write(
