@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>annotations</Nullable>
+    <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>KartaViewSharp</Title>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -16,6 +16,8 @@
     <RepositoryType>git</RepositoryType>
     <Copyright>Pierce Andjelkovic</Copyright>
     <Description>C# library for interfacing with the Kartaview API.</Description>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <NeutralLanguage>en-AU</NeutralLanguage>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
