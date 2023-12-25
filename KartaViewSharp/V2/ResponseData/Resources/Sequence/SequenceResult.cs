@@ -1,9 +1,6 @@
-﻿using System.Text.Json;
-using System;
-using System.Text.Json.Serialization;
-using System.Text.Json.Serialization.Metadata;
+﻿using System.Text.Json.Serialization;
 
-namespace KartaViewSharp.V2.ResponseData.Sequence;
+namespace KartaViewSharp.V2.ResponseData.Resources.Sequence;
 
 public sealed class SequenceResult
 {

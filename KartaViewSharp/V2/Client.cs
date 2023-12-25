@@ -1,151 +1,21 @@
-﻿using System;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 using KartaViewSharp.V2.Interfaces;
+using KartaViewSharp.V2.RequestData;
 using KartaViewSharp.V2.ResponseData;
+using KartaViewSharp.V2.ResponseData.Resources.Photo;
+using KartaViewSharp.V2.ResponseData.Resources.Sequence;
 using NetTopologySuite.Geometries;
 using RestSharp;
 using RestSharp.Serializers.Json;
 
 namespace KartaViewSharp.V2
 {
-	public class Client : ISequence, ISequenceRawData, ISequenceAttachment, ISequenceBreakdown, ISequenceMetrics, IPhoto, IPhotoPart, IVideo, IUser, IUserMetrics, IDedicatedCampaign, IDashboard, ISimulate, IListener
+    public class Client : ISequence, ISequenceRawData, ISequenceAttachment, ISequenceBreakdown, ISequenceMetrics, IPhoto, IPhotoPart, IVideo, IUser, IUserMetrics, IDedicatedCampaign, IDashboard, ISimulate, IListener
 	{
 		private const string _baseUri = "https://api.openstreetcam.org/2.0";
 
-		private static void AddPhotoFilters(PhotoQueryFilters filters, RestRequest request)
-		{
-			AddCommonFilters(filters, request);
-
-			//sequenceId
-			//sequenceIndex
-			//searchSequenceType
-			//searchPlatform
-			//searchFieldOfView
-			//userId
-			//videoIndex
-			//projection
-			//projectionYaw
-			//fieldOfView
-			//lat
-			//lng
-			//radius
-			//zoomLevel
-		}
-
-		private static void AddFilters(SequenceQueryFilters filters, RestRequest request)
-		{
-			AddCommonFilters(filters, request);
-
-			if (filters.UserIds is { Length: > 0 })
-				request.AddQueryParameter("userId", string.Join(',', filters.UserIds));
-
-			if (filters.TopLeft is { IsValid: true })
-				request.AddQueryParameter("tLeft", filters.TopLeft.X + ',' + filters.TopLeft.Y);
-
-			if (filters.BottomRight is { IsValid: true })
-				request.AddQueryParameter("bRight", filters.BottomRight.X + ',' + filters.BottomRight.Y);
-
-			if (filters.WithAttachments.HasValue)
-				request.AddQueryParameter("withAttachments", filters.WithAttachments.Value);
-
-			if (filters.WithPhotos.HasValue)
-				request.AddQueryParameter("withPhotos", filters.WithPhotos.Value);
-
-			if (filters.CountryCode != null)
-				request.AddQueryParameter("countryCode", filters.CountryCode.TwoLetterCode);
-
-			if (filters.StartDate != null)
-				request.AddQueryParameter("startDate", filters.StartDate.Value);
-
-			if (filters.EndDate != null)
-				request.AddQueryParameter("endDate", filters.EndDate.Value);
-
-			if (filters.SequenceStatus != null)
-			{
-				var sequenceStatus = filters.SequenceStatus switch
-				{
-					SequenceStatus.Public => "public",
-					SequenceStatus.Uploading => "uploading",
-					SequenceStatus.Processing => "processing",
-					SequenceStatus.Failed => "failed",
-					SequenceStatus.Deleted => "deleted",
-					_ => throw new ArgumentOutOfRangeException(nameof(filters.SequenceStatus))
-				};
-				request.AddQueryParameter("sequenceStatus", sequenceStatus);
-			}
-
-			if (filters.Platform != null)
-			{
-				var platform = filters.Platform switch
-				{
-					Platform.IOS => "ios",
-					Platform.Android => "android",
-					Platform.Waylens => "waylens",
-					Platform.GoPro => "gopro",
-					Platform.Other => "other",
-					_ => throw new ArgumentOutOfRangeException(nameof(filters.Platform))
-				};
-				request.AddQueryParameter("platform", platform);
-			}
-
-			if (filters.UserType != null)
-			{
-				var userType = filters.UserType switch
-				{
-					UserType.Regular => "regular",
-					UserType.Driver => "driver",
-					UserType.Byod => "byod",
-					UserType.Dedicated => "dedicated",
-					UserType.Internal => "internal",
-					_ => throw new ArgumentOutOfRangeException(nameof(filters.UserType))
-				};
-				request.AddQueryParameter("userType", userType);
-			}
-
-			if (filters.SequenceType != null)
-			{
-				var sequenceType = filters.SequenceType switch
-				{
-					SequenceType.Vdb => "vdb",
-					SequenceType.Video => "video",
-					SequenceType.Photo => "photo",
-					_ => throw new ArgumentOutOfRangeException(nameof(filters.SequenceType))
-				};
-				request.AddQueryParameter("sequenceType", sequenceType);
-			}
-
-			if (filters.Region is { Length: > 0 })
-				request.AddQueryParameter("region", string.Join(',', filters.Region));
-		}
-
-		private static void AddCommonFilters(QueryFilters filters, RestRequest request)
-		{
-			if (filters.Id?.Length > 0)
-				request.AddQueryParameter("id", string.Join(',', filters.Id));
-
-			if (filters.IdInterval.HasValue)
-				request.AddQueryParameter("idInterval", $"{filters.IdInterval.Value.Start}-{filters.IdInterval.Value.End}");
-
-			if (filters.Page.HasValue)
-				request.AddQueryParameter("page", filters.Page.Value);
-
-			if (filters.ItemsPerPage != 40)
-				request.AddQueryParameter("itemsPerPage", filters.ItemsPerPage);
-
-			if (!string.IsNullOrWhiteSpace(filters.OrderBy))
-				request.AddQueryParameter("orderBy", filters.OrderBy);
-
-			if (filters.OrderDirection == OrderDirection.Descending)
-				request.AddQueryParameter("orderDirection", "desc");
-
-			if (filters.Units == Units.Imperial)
-				request.AddQueryParameter("units", "imperial");
-
-			if (filters.Join is { Length: > 0 })
-				request.AddQueryParameter("join", string.Join(',', filters.Join));
-		}
+		
 
 		public async Task<SequenceResponse> RetrieveSequences(SequenceQueryFilters filters)
 		{
@@ -153,7 +23,7 @@ namespace KartaViewSharp.V2
 
 			var request = new RestRequest("/sequence/");
 
-			AddFilters(filters, request);
+			filters.AddSequenceFilters(request);
 
 			var response = await client.ExecuteGetAsync<SequenceResponse>(request);
 			return response.Data;
@@ -269,22 +139,12 @@ namespace KartaViewSharp.V2
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> GetTheDetailsOfASequence()
-		{
-			throw new NotImplementedException();
-		}
-
 		public async Task<SequenceResponse> RetrieveSequences()
 		{
 			throw new NotImplementedException();
 		}
 
 		public async Task<SequenceResponse> GetTheDetailsOfAUser(int dashboardUserId)
-		{
-			throw new NotImplementedException();
-		}
-
-		public async Task<SequenceResponse> GetTheDetailsOfAUser()
 		{
 			throw new NotImplementedException();
 		}
@@ -299,22 +159,12 @@ namespace KartaViewSharp.V2
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> GetTheDetailsOfAnIssue()
-		{
-			throw new NotImplementedException();
-		}
-
 		public async Task<SequenceResponse> RetrieveIssues()
 		{
 			throw new NotImplementedException();
 		}
 
 		public async Task<SequenceResponse> GetTheDetailsOfARegion(int dashboardRegionId)
-		{
-			throw new NotImplementedException();
-		}
-
-		public async Task<SequenceResponse> GetTheDetailsOfARegion()
 		{
 			throw new NotImplementedException();
 		}
@@ -340,16 +190,6 @@ namespace KartaViewSharp.V2
 		}
 
 		public async Task<SequenceResponse> GetTheMetricsDetailsOfAUser(string userId)
-		{
-			throw new NotImplementedException();
-		}
-
-		public async Task<SequenceResponse> DeleteAUser()
-		{
-			throw new NotImplementedException();
-		}
-
-		public async Task<SequenceResponse> GetTheMetricsDetailsOfAUser()
 		{
 			throw new NotImplementedException();
 		}
@@ -425,7 +265,7 @@ namespace KartaViewSharp.V2
 
 			var request = new RestRequest("/photo/");
 
-			AddPhotoFilters(filters, request);
+			filters.AddPhotoFilters(request);
 
 			var response = await client.ExecuteGetAsync<PhotoResponse>(request);
 			return response.Data;
@@ -481,26 +321,6 @@ namespace KartaViewSharp.V2
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> CreateANewPhotoPart()
-		{
-			throw new NotImplementedException();
-		}
-
-		public async Task<SequenceResponse> UpdateTheDetailsOfAPhotoPart()
-		{
-			throw new NotImplementedException();
-		}
-
-		public async Task<SequenceResponse> GetTheDetailsOfAPhotoPart()
-		{
-			throw new NotImplementedException();
-		}
-
-		public async Task<SequenceResponse> DeleteAPhotoPart()
-		{
-			throw new NotImplementedException();
-		}
-
 		public async Task<SequenceResponse> RetrieveVideos()
 		{
 			throw new NotImplementedException();
@@ -522,16 +342,6 @@ namespace KartaViewSharp.V2
 		}
 
 		public async Task<SequenceResponse> DeleteAVideo(int videoId)
-		{
-			throw new NotImplementedException();
-		}
-
-		public async Task<SequenceResponse> GetTheDetailsOfAVideo()
-		{
-			throw new NotImplementedException();
-		}
-
-		public async Task<SequenceResponse> DeleteAVideo()
 		{
 			throw new NotImplementedException();
 		}
@@ -592,56 +402,6 @@ namespace KartaViewSharp.V2
 		}
 
 		public async Task<SequenceResponse> RetrieveIntervalMetricsUsedForDashboardCharts(int dedicatedCampaignId)
-		{
-			throw new NotImplementedException();
-		}
-
-		public async Task<SequenceResponse> CreateANewDedicatedCampaign()
-		{
-			throw new NotImplementedException();
-		}
-
-		public async Task<SequenceResponse> UpdateTheDetailsOfADedicatedCampaign()
-		{
-			throw new NotImplementedException();
-		}
-
-		public async Task<SequenceResponse> GetTheDetailsOfADedicatedCampaign()
-		{
-			throw new NotImplementedException();
-		}
-
-		public async Task<SequenceResponse> DeleteADedicatedCampaign()
-		{
-			throw new NotImplementedException();
-		}
-
-		public async Task<SequenceResponse> RetrieveTheCellsOfADedicatedCampaign()
-		{
-			throw new NotImplementedException();
-		}
-
-		public async Task<SequenceResponse> CreateANewDedicatedCampaignCell()
-		{
-			throw new NotImplementedException();
-		}
-
-		public async Task<SequenceResponse> UpdateTheDetailsOfADedicatedCampaignCell()
-		{
-			throw new NotImplementedException();
-		}
-
-		public async Task<SequenceResponse> GetTheDetailsOfADedicatedCampaignCell()
-		{
-			throw new NotImplementedException();
-		}
-
-		public async Task<SequenceResponse> DeleteADedicatedCampaignCell()
-		{
-			throw new NotImplementedException();
-		}
-
-		public async Task<SequenceResponse> RetrieveIntervalMetricsUsedForDashboardCharts()
 		{
 			throw new NotImplementedException();
 		}

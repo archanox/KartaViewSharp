@@ -1,8 +1,7 @@
 ﻿using System.Text.Json.Serialization;
-using KartaViewSharp.V2.ResponseData.Sequence;
 using KartaViewSharp.V2.ResponseData.Shared;
 
-namespace KartaViewSharp.V2.ResponseData;
+namespace KartaViewSharp.V2.ResponseData.Resources.Sequence;
 
 public sealed class SequenceResponse
 {
@@ -11,9 +10,4 @@ public sealed class SequenceResponse
 
     [JsonPropertyName("result")]
     public SequenceResult Result { get; set; }
-}
-
-[JsonSerializable(typeof(SequenceResponse), GenerationMode = JsonSourceGenerationMode.Metadata)]
-public partial class SequenceResponseContext : JsonSerializerContext
-{
 }
