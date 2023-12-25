@@ -15,7 +15,7 @@
     <RepositoryUrl>https://github.com/archanox/KartaViewSharp</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Copyright>Pierce Andjelkovic</Copyright>
-    <Description>C# library for interfacing with the Kartaview API.</Description>
+    <Description>C# library to access the KartaView API</Description>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <NeutralLanguage>en-AU</NeutralLanguage>
   </PropertyGroup>
