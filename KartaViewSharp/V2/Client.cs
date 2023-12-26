@@ -15,8 +15,6 @@ namespace KartaViewSharp.V2
 	{
 		private const string _baseUri = "https://api.openstreetcam.org/2.0";
 
-		
-
 		public async Task<SequenceResponse> RetrieveSequences(SequenceQueryFilters filters)
 		{
 			var client = CreateRestClient<SequenceResponseContext>();
