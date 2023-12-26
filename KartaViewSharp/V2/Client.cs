@@ -107,7 +107,22 @@ namespace KartaViewSharp.V2
 			throw new NotImplementedException();
 		}
 
+		public Task<SequenceResponse> GetUserTypeMetricIntervalData(UserTypeMetric userTypeMetrics)
+		{
+			throw new NotImplementedException();
+		}
+
 		public async Task<SequenceResponse> GetPlatformMetricIntervalData(PlatformMatric platformMetrics)
+		{
+			throw new NotImplementedException();
+		}
+
+		public async Task<SequenceResponse> GetUserTypeMetricIntervalData(UserTypeMetric[] userTypeMetrics, DashboardQueryFilters filters)
+		{
+			throw new NotImplementedException();
+		}
+
+		public async Task<SequenceResponse> GetPlatformMetricIntervalData(PlatformMatric[] platformMetrics)
 		{
 			throw new NotImplementedException();
 		}
@@ -118,6 +133,11 @@ namespace KartaViewSharp.V2
 		}
 
 		public async Task<SequenceResponse> GetTotalDistanceMetricIntervalData()
+		{
+			throw new NotImplementedException();
+		}
+
+		public async Task<SequenceResponse> GetPlatformMetricIntervalData(PhotosCountMetric[] photosCountMetrics)
 		{
 			throw new NotImplementedException();
 		}

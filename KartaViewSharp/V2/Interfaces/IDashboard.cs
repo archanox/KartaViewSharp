@@ -1,18 +1,20 @@
-﻿using KartaViewSharp.V2.ResponseData.Resources.Sequence;
+﻿using KartaViewSharp.V2.Enums;
+using KartaViewSharp.V2.ResponseData.Resources.Sequence;
+using NetTopologySuite.DataStructures;
 
 namespace KartaViewSharp.V2.Interfaces;
 
 public interface IDashboard
 {
-    Task<SequenceResponse> GetUserTypeMetricIntervalData();
+    Task<SequenceResponse> GetUserTypeMetricIntervalData(UserTypeMetric[] userTypeMetrics, DashboardQueryFilters filters);
 
-    Task<SequenceResponse> GetPlatformMetricIntervalData(PlatformMatric platformMetrics);
+    Task<SequenceResponse> GetPlatformMetricIntervalData(PlatformMatric[] platformMetrics);
 
     Task<SequenceResponse> GetUniqueDistanceMetricIntervalData();
 
     Task<SequenceResponse> GetTotalDistanceMetricIntervalData();
 
-    Task<SequenceResponse> GetPlatformMetricIntervalData(PhotosCountMetric photosCountMetrics);
+    Task<SequenceResponse> GetPlatformMetricIntervalData(PhotosCountMetric[] photosCountMetrics);
 
     Task<SequenceResponse> GetMetricsDataBasedOnMetricType();
 
@@ -33,46 +35,110 @@ public interface IDashboard
     Task<SequenceResponse> RetrieveVisibleRegions();
 }
 
-[Flags]
-public enum PhotosCountMetric
+public class DashboardQueryFilters
 {
-    unitPhotosCount,
-    intervalPhotosCount,
-    totalPhotosCount,
-    unitMatchedPhotosCount,
-    intervalMatchedPhotosCount,
-    totalMatchedPhotosCount,
-    unitUnmatchedPhotosCount,
-    intervalUnmatchedPhotosCount,
-    totalUnmatchedPhotosCount,
-    unitActivePhotosCount,
-    unitDeletedPhotosCount,
-    intervalActivePhotosCount,
-    intervalDeletedPhotosCount,
-    totalActivePhotosCount,
-    totalDeletedPhotosCount,
-    uploadingPhotosCount,
-    processingPhotosCount,
-    totalUploadingPhotosCount,
-    totalProcessingPhotosCount,
+	/// <summary>
+	/// Retrieve data based on one of the intervals.
+	/// </summary>
+	public Interval Interval { get; set; }
+
+	/// <summary>
+	/// The starting point of the date interval.
+	/// </summary>
+	public DateTime StartDate { get; set; }
+
+	/// <summary>
+	/// The ending point of the date interval.
+	/// </summary>
+	public DateTime EndDate { get; set; }
+
+	/// <summary>
+	/// The platform of the device that recorded the file.
+	/// </summary>
+	public Platform Platform { get; set; }
+
+	/// <summary>
+	/// Type of the user.
+	/// </summary>
+	public UserType UserType { get; set; }
+
+	/// <summary>
+	/// Unique identifier representing a specific region. Multiple regions can be provided.
+	/// </summary>
+	public Region[] Region { get; set; } = [];
+
+	/// <summary>
+	/// The field of view type.
+	/// </summary>
+	public FieldOfView FieldOfView { get; set; }
+
+	/// <summary>
+	/// The type of the distance measurement.
+	/// </summary>
+	public Units Units { get; set; }
 }
 
-[Flags]
+public enum Interval
+{
+	Daily,
+    Weekly,
+	Monthly,
+}
+
+public enum UserTypeMetric
+{
+	UnitRegularUserPhotos,
+	UnitByodUserPhotos,
+	UnitDedicatedUserPhotos,
+	UnitInternalUserPhotos,
+	IntervalRegularUserPhotos,
+	IntervalByodUserPhotos,
+	IntervalDedicatedUserPhotos,
+	IntervalInternalUserPhotos,
+	TotalRegularUserPhotos,
+	TotalByodUserPhotos,
+	TotalDedicatedUserPhotos,
+	TotalInternalUserPhotos
+}
+
+public enum PhotosCountMetric
+{
+    UnitPhotosCount,
+    IntervalPhotosCount,
+    TotalPhotosCount,
+    UnitMatchedPhotosCount,
+    IntervalMatchedPhotosCount,
+    TotalMatchedPhotosCount,
+    UnitUnmatchedPhotosCount,
+    IntervalUnmatchedPhotosCount,
+    TotalUnmatchedPhotosCount,
+    UnitActivePhotosCount,
+    UnitDeletedPhotosCount,
+    IntervalActivePhotosCount,
+    IntervalDeletedPhotosCount,
+    TotalActivePhotosCount,
+    TotalDeletedPhotosCount,
+    UploadingPhotosCount,
+    ProcessingPhotosCount,
+    TotalUploadingPhotosCount,
+    TotalProcessingPhotosCount,
+}
+
 public enum PlatformMatric
 {
-    unitIOSPhotos,
-    unitAndroidPhotos,
-    unitWaylensPhotos,
-    unitGoProPhotos,
-    unitOtherPhotos,
-    intervalIOSPhotos,
-    intervalAndroidPhotos,
-    intervalWaylensPhotos,
-    intervalGoProPhotos,
-    intervalOtherPhotos,
-    totalIOSPhotos,
-    totalAndroidPhotos,
-    totalWaylensPhotos,
-    totalGoProPhotos,
-    totalOtherPhotos,
+    UnitIosPhotos,
+    UnitAndroidPhotos,
+    UnitWaylensPhotos,
+    UnitGoProPhotos,
+    UnitOtherPhotos,
+    IntervalIosPhotos,
+    IntervalAndroidPhotos,
+    IntervalWaylensPhotos,
+    IntervalGoProPhotos,
+    IntervalOtherPhotos,
+    TotalIosPhotos,
+    TotalAndroidPhotos,
+    TotalWaylensPhotos,
+    TotalGoProPhotos,
+    TotalOtherPhotos,
 }
