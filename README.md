@@ -1,5 +1,5 @@
 # KartaViewSharp
-![Nuget](https://img.shields.io/nuget/v/KartaViewSharp?link=https%3A%2F%2Fwww.nuget.org%2Fpackages%2FKartaViewSharp)
+[![Nuget](https://img.shields.io/nuget/v/KartaViewSharp "nuget")](https://www.nuget.org/packages/KartaViewSharp)[![Codeac](https://static.codeac.io/badges/2-731878751.svg "Codeac")](https://app.codeac.io/github/archanox/KartaViewSharp)
 
 ## Features
 
