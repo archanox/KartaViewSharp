@@ -23,6 +23,7 @@
 		<EmbedUntrackedSources>True</EmbedUntrackedSources>
 		<PackageIcon>KartaViewSharp.png</PackageIcon>
 		<Version>1.0.2</Version>
+		<ContinuousIntegrationBuild>True</ContinuousIntegrationBuild>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
