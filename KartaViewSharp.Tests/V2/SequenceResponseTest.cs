@@ -53,7 +53,6 @@ public class SequenceResponseTest
 	[Fact]
 	public void TestRetrieveSequencesWithPhotos()
 	{
-
 		var result = JsonSerializer.Deserialize<SequenceResponse>(JsonResources.TestRetrieveSequencesWithPhotos, _jsonSerializerOptions);
 
 		Assert.Equal(600, result.Status.ApiCode);

@@ -25,7 +25,6 @@ namespace KartaViewSharp.V2
 			return response.Data;
 		}
 
-
 		public async Task<SequenceResponse> CreateANewSequence()
 		{
 			throw new NotImplementedException();
