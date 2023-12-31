@@ -1,5 +1,4 @@
 ﻿using System.Text.Json.Serialization;
-using KartaViewSharp.V2.Enums;
 using KartaViewSharp.Common.Converters;
 
 namespace KartaViewSharp.V1.Response.Resources.MyList;

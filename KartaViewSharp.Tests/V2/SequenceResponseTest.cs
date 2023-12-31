@@ -4,14 +4,6 @@ using Xunit;
 using KartaViewSharp.V2.Response.Resources.Sequence;
 using System.Text.Json.Serialization;
 using System.Text.Json;
-using System.IO;
-using System.Xml;
-using System.Xml.Serialization;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System;
-using System.Linq;
-using KartaViewSharp.V2.Response.Resources.Photo;
 
 namespace KartaViewSharp.Tests.V2;
 
@@ -67,8 +59,8 @@ public class SequenceResponseTest
 		Assert.Equal(600, result.Status.ApiCode);
 		Assert.Equal(HttpStatusCode.OK, result.Status.HttpCode);
 		Assert.NotNull(result);
+		Assert.Single(result.Result.Data);
 		Assert.NotNull(result.Result.Data[0].Photos);
-		Assert.True(result.Result.Data.Length == 1);
 	}
 
 	//[Fact]

@@ -1,6 +1,4 @@
-﻿using KartaViewSharp.V2.Response.Shared;
-using System;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace KartaViewSharp.V2.Response.Resources.Photo;
 

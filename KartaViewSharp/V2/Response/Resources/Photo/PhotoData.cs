@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 using System.Xml.Serialization;
 using KartaViewSharp.Common.Converters;
 using KartaViewSharp.V2.Enums;

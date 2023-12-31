@@ -1,5 +1,4 @@
-﻿using KartaViewSharp.Common.Converters;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace KartaViewSharp.V2.Response.Resources.Sequence;

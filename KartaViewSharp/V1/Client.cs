@@ -1,5 +1,4 @@
-﻿using System.Text.Json;
-using System.Web;
+﻿using System.Web;
 using KartaViewSharp.Common;
 using KartaViewSharp.V1.Interfaces;
 using KartaViewSharp.V1.Request;

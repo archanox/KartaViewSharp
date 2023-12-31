@@ -1,6 +1,5 @@
 ﻿using KartaViewSharp.V2.Enums;
 using KartaViewSharp.V2.Response.Resources.Sequence;
-using NetTopologySuite.DataStructures;
 
 namespace KartaViewSharp.V2.Interfaces;
 

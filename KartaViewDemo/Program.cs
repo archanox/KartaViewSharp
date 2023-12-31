@@ -1,12 +1,10 @@
-﻿using KartaViewSharp.V2;
-
-namespace KartaView
+﻿namespace KartaView
 {
 	internal static class Program
 	{
 		static async Task Main()
 		{
-			const int sequenceId = 7068281;
+			//const int sequenceId = 7068281;
 
 			// Initialize the API client
 			//var apiClient = new Client();

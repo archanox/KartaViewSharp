@@ -1,14 +1,10 @@
-﻿using System.Text.Json;
-using System.Text.Json.Serialization;
-using KartaViewSharp.Common;
+﻿using KartaViewSharp.Common;
 using KartaViewSharp.V2.Interfaces;
 using KartaViewSharp.V2.Request;
-using KartaViewSharp.V2.Response;
 using KartaViewSharp.V2.Response.Resources.Photo;
 using KartaViewSharp.V2.Response.Resources.Sequence;
 using NetTopologySuite.Geometries;
 using RestSharp;
-using RestSharp.Serializers.Json;
 
 namespace KartaViewSharp.V2
 {

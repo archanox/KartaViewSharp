@@ -1,7 +1,6 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 using KartaViewSharp.V1.Response.Resources.Authentication;
-using KartaViewSharp.V2.Enums;
 
 namespace KartaViewSharp.Common.Converters;
 
