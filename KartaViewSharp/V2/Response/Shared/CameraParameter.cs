@@ -49,8 +49,16 @@ public class CameraParameter : IEquatable<CameraParameter>
 
 	public bool Equals(CameraParameter? other)
 	{
-		if (other is null) return false;
-		if (ReferenceEquals(this, other)) return true;
+		if (other is null)
+		{
+			return false;
+		}
+
+		if (ReferenceEquals(this, other))
+		{
+			return true;
+		}
+
 		return Nullable.Equals(FNumber, other.FNumber) &&
 		       Nullable.Equals(FLen, other.FLen) &&
 		       Nullable.Equals(VFov, other.VFov) &&
@@ -63,9 +71,21 @@ public class CameraParameter : IEquatable<CameraParameter>
 
 	public override bool Equals(object? obj)
 	{
-		if (obj is null) return false;
-		if (ReferenceEquals(this, obj)) return true;
-		if (obj.GetType() != this.GetType()) return false;
+		if (obj is null)
+		{
+			return false;
+		}
+
+		if (ReferenceEquals(this, obj))
+		{
+			return true;
+		}
+
+		if (obj.GetType() != this.GetType())
+		{
+			return false;
+		}
+
 		return Equals((CameraParameter)obj);
 	}
 

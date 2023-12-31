@@ -40,7 +40,9 @@ internal static class SequenceFilters
 		}
 
 		if (filters.CountryCode != null)
+		{
 			request.AddQueryParameter("countryCode", filters.CountryCode.TwoLetterCode);
+		}
 
 		if (filters.StartDate != null)
 		{

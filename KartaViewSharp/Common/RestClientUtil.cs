@@ -5,7 +5,7 @@ using RestSharp.Serializers.Json;
 
 namespace KartaViewSharp.Common;
 
-public class RestClientUtil
+public abstract class RestClientUtil
 {
     internal static RestClient CreateRestClient<T>(string baseUrl) where T : JsonSerializerContext, new()
     {

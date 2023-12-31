@@ -1,10 +1,7 @@
-﻿using System.Text.Json;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 using System.Xml.Serialization;
 using ISO3166;
 using KartaViewSharp.Common.Converters;
-using KartaViewSharp.V1.Response.Resources.Authentication;
-using KartaViewSharp.V1.Response.Resources.MyList;
 using KartaViewSharp.V2.Enums;
 using KartaViewSharp.V2.Response.Resources.Photo;
 using KartaViewSharp.V2.Response.Shared;
@@ -347,8 +344,16 @@ public sealed class SequenceData : IEquatable<SequenceData>
 
 	public bool Equals(SequenceData? other)
 	{
-		if (other is null) return false;
-		if (ReferenceEquals(this, other)) return true;
+		if (other is null)
+		{
+			return false;
+		}
+
+		if (ReferenceEquals(this, other))
+		{
+			return true;
+		}
+
 		return Id == other.Id &&
 		       DateAdded.Equals(other.DateAdded) &&
 		       Nullable.Equals(DateProcessed, other.DateProcessed) &&
@@ -393,10 +398,9 @@ public sealed class SequenceData : IEquatable<SequenceData>
 		       UserId == other.UserId &&
 		       Nullable.Equals(FieldOfView, other.FieldOfView) &&
 		       MatchStatus == other.MatchStatus &&
-			   Equals(Photo, other.Photo) &&
-			   //Equals(Photos, other.Photos) &&
-               Enumerable.SequenceEqual(Photos, other.Photos) &&
-			   Equals(User, other.User);
+		       Equals(Photo, other.Photo) &&
+		       Enumerable.SequenceEqual(Photos, other.Photos) &&
+		       Equals(User, other.User);
 	}
 
 	public override bool Equals(object? obj)
@@ -452,108 +456,8 @@ public sealed class SequenceData : IEquatable<SequenceData>
 		hashCode.Add(FieldOfView);
 		hashCode.Add((int)MatchStatus);
 		hashCode.Add(Photo);
-		//hashCode.Add(Photos);
 		hashCode.Add(Photos.Aggregate(0, HashCode.Combine));
 		hashCode.Add(User);
 		return hashCode.ToHashCode();
-	}
-}
-
-public class JsonStringAsArrayJsonConverter<T> : JsonConverter<T[]>
-{
-	public override T[] Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		switch (reader.TokenType)
-		{
-			case JsonTokenType.Null:
-				return default;
-			case JsonTokenType.StartArray:
-				return JsonSerializer.Deserialize<T[]>(ref reader, options) ?? throw new JsonException();
-			case JsonTokenType.String when string.IsNullOrWhiteSpace(reader.GetString()):
-				return default;
-			case JsonTokenType.String when !string.IsNullOrWhiteSpace(reader.GetString()):
-				var input = reader.GetString();
-				var array = JsonSerializer.Deserialize<T[]>(input, options) ?? throw new JsonException();
-				return array;
-			default:
-			{
-				var input2 = reader.GetString();
-				return Array.Empty<T>();
-			}
-		}
-	}
-
-	public override void Write(Utf8JsonWriter writer, T[] value, JsonSerializerOptions options)
-	{
-		writer.WriteRawValue(JsonSerializer.Serialize(value, options));
-	}
-}
-
-public class JsonStringAsObjectJsonConverter<T> : JsonConverter<T>
-{
-	public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		switch (reader.TokenType)
-		{
-            case JsonTokenType.Null:
-	            return default;
-			case JsonTokenType.StartObject:
-			{
-				return JsonSerializer.Deserialize<T>(ref reader, options) ?? throw new JsonException();
-			}
-			case JsonTokenType.String when string.IsNullOrWhiteSpace(reader.GetString()):
-				return default;
-			case JsonTokenType.String when !string.IsNullOrWhiteSpace(reader.GetString()):
-				var input = reader.GetString();
-				return JsonSerializer.Deserialize<T>(input, options) ?? throw new JsonException();
-			default:
-				throw new JsonException();
-		}
-	}
-
-	public override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
-	{
-        writer.WriteRawValue(JsonSerializer.Serialize(value, options));
-	}
-}
-
-public class User : IEquatable<User>
-{
-	[JsonPropertyName("id")]
-	[JsonConverter(typeof(StringAsIntJsonConverter))]
-	public int Id { get; set; }
-
-	[JsonPropertyName("username")]
-	public string Username { get; set; }
-
-	[JsonPropertyName("fullName")]
-	public string FullName { get; set; }
-
-	[JsonPropertyName("category")]
-	[JsonConverter(typeof(StringAsUserCategoryJsonConverter))]
-	public UserCategory Category { get; set; }
-
-	[JsonPropertyName("driverType")]
-	[JsonConverter(typeof(StringAsDriverTypeJsonConverter))]
-	public DriverType DriverType { get; set; }
-
-	public bool Equals(User? other)
-	{
-		if (ReferenceEquals(null, other)) return false;
-		if (ReferenceEquals(this, other)) return true;
-		return Id == other.Id && Username == other.Username && FullName == other.FullName && Category == other.Category && DriverType == other.DriverType;
-	}
-
-	public override bool Equals(object? obj)
-	{
-		if (ReferenceEquals(null, obj)) return false;
-		if (ReferenceEquals(this, obj)) return true;
-		if (obj.GetType() != this.GetType()) return false;
-		return Equals((User)obj);
-	}
-
-	public override int GetHashCode()
-	{
-		return HashCode.Combine(Id, Username, FullName, (int)Category, (int)DriverType);
 	}
 }

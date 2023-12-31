@@ -2,13 +2,12 @@
 using System.Xml.Serialization;
 using KartaViewSharp.Common.Converters;
 using KartaViewSharp.V2.Enums;
-using KartaViewSharp.V2.Response.Resources.Sequence;
 using KartaViewSharp.V2.Response.Shared;
 using NetTopologySuite.Geometries;
 
 namespace KartaViewSharp.V2.Response.Resources.Photo
 {
-	public sealed class PhotoData : IEquatable<PhotoData>
+    public sealed class PhotoData : IEquatable<PhotoData>
 	{
 		/// <summary>
 		/// The status of the new image, after the blurring process, if any blurring occurs -&gt; status will be BLURRED.
@@ -363,59 +362,67 @@ namespace KartaViewSharp.V2.Response.Resources.Photo
 
 		public bool Equals(PhotoData? other)
 		{
-			if (other is null) return false;
-			if (ReferenceEquals(this, other)) return true;
+			if (other is null)
+			{
+				return false;
+			}
+
+			if (ReferenceEquals(this, other))
+			{
+				return true;
+			}
+
 			return AutoImgProcessingResult == other.AutoImgProcessingResult &&
-				   string.Equals(AutoImgProcessingStatus, other.AutoImgProcessingStatus, StringComparison.InvariantCulture) &&
-				   Nullable.Equals(CameraParameters, other.CameraParameters) &&
-                   DateAdded.Equals(other.DateAdded) &&
-                   Nullable.Equals(DateProcessed, other.DateProcessed) &&
-                   Nullable.Equals(Distance, other.Distance) &&
-                   Nullable.Equals(FieldOfView, other.FieldOfView) &&
-                   string.Equals(Filepath, other.Filepath, StringComparison.InvariantCulture) &&
-                   string.Equals(FilepathLTh, other.FilepathLTh, StringComparison.InvariantCulture) &&
-                   string.Equals(FilepathProc, other.FilepathProc, StringComparison.InvariantCulture) &&
-                   string.Equals(FilepathTh, other.FilepathTh, StringComparison.InvariantCulture) &&
+			       string.Equals(AutoImgProcessingStatus, other.AutoImgProcessingStatus, StringComparison.InvariantCulture) &&
+			       Nullable.Equals(CameraParameters, other.CameraParameters) &&
+			       DateAdded.Equals(other.DateAdded) &&
+			       Nullable.Equals(DateProcessed, other.DateProcessed) &&
+			       Nullable.Equals(Distance, other.Distance) &&
+			       Nullable.Equals(FieldOfView, other.FieldOfView) &&
+			       string.Equals(Filepath, other.Filepath, StringComparison.InvariantCulture) &&
+			       string.Equals(FilepathLTh, other.FilepathLTh, StringComparison.InvariantCulture) &&
+			       string.Equals(FilepathProc, other.FilepathProc, StringComparison.InvariantCulture) &&
+			       string.Equals(FilepathTh, other.FilepathTh, StringComparison.InvariantCulture) &&
 			       string.Equals(Fileurl?.ToString(), other.Fileurl?.ToString(), StringComparison.InvariantCulture) &&
-				   string.Equals(FileurlLTh?.ToString(), other.FileurlLTh?.ToString(), StringComparison.InvariantCulture) &&
-				   string.Equals(FileurlProc?.ToString(), other.FileurlProc?.ToString(), StringComparison.InvariantCulture) &&
-				   string.Equals(FileurlTh?.ToString(), other.FileurlTh?.ToString(), StringComparison.InvariantCulture) &&
-				   From == other.From &&
-                   GpsAccuracy.Equals(other.GpsAccuracy) &&
-                   HasObd == other.HasObd &&
-                   Headers.Equals(other.Headers) &&
-                   Heading.Equals(other.Heading) &&
-                   Height == other.Height &&
-                   Id == other.Id &&
-                   ImagePartProjection == other.ImagePartProjection &&
-                   IsUnwrapped == other.IsUnwrapped &&
-                   IsWrapped == other.IsWrapped &&
-                   Nullable.Equals(Latitude, other.Latitude) &&
-                   Nullable.Equals(Longitude, other.Longitude) &&
-                   Nullable.Equals(MatchLat, other.MatchLat) &&
-                   Nullable.Equals(MatchLng, other.MatchLng) &&
-                   MatchSegmentId == other.MatchSegmentId &&
-                   string.Equals(Name, other.Name, StringComparison.InvariantCulture) &&
-                   string.Equals(OrgCode, other.OrgCode, StringComparison.InvariantCulture) &&
-                   Projection == other.Projection &&
-                   ProjectionYaw == other.ProjectionYaw &&
-                   //QualityDetails.Equals(other.QualityDetails) &&
-                   string.Equals(QualityLevel, other.QualityLevel, StringComparison.InvariantCulture) &&
-                   QualityStatus == other.QualityStatus &&
-                   RawDataId == other.RawDataId &&
-                   SequenceId == other.SequenceId &&
-                   SequenceIndex == other.SequenceIndex &&
-                   Nullable.Equals(ShotDate, other.ShotDate) &&
-                   Status == other.Status &&
-                   string.Equals(Storage, other.Storage, StringComparison.InvariantCulture) &&
-                   To == other.To &&
-                   UnwrapVersion == other.UnwrapVersion &&
-                   VideoId == other.VideoId &&
-                   VideoIndex == other.VideoIndex &&
-                   Visibility == other.Visibility &&
-                   WayId == other.WayId &&
-                   Width == other.Width &&
-                   WrapVersion == other.WrapVersion;
+			       string.Equals(FileurlLTh?.ToString(), other.FileurlLTh?.ToString(), StringComparison.InvariantCulture) &&
+			       string.Equals(FileurlProc?.ToString(), other.FileurlProc?.ToString(), StringComparison.InvariantCulture) &&
+			       string.Equals(FileurlTh?.ToString(), other.FileurlTh?.ToString(), StringComparison.InvariantCulture) &&
+			       From == other.From &&
+			       GpsAccuracy.Equals(other.GpsAccuracy) &&
+			       HasObd == other.HasObd &&
+			       Headers.Equals(other.Headers) &&
+			       Heading.Equals(other.Heading) &&
+			       Height == other.Height &&
+			       Id == other.Id &&
+			       ImagePartProjection == other.ImagePartProjection &&
+			       IsUnwrapped == other.IsUnwrapped &&
+			       IsWrapped == other.IsWrapped &&
+			       Nullable.Equals(Latitude, other.Latitude) &&
+			       Nullable.Equals(Longitude, other.Longitude) &&
+			       Nullable.Equals(MatchLat, other.MatchLat) &&
+			       Nullable.Equals(MatchLng, other.MatchLng) &&
+			       MatchSegmentId == other.MatchSegmentId &&
+			       string.Equals(Name, other.Name, StringComparison.InvariantCulture) &&
+			       string.Equals(OrgCode, other.OrgCode, StringComparison.InvariantCulture) &&
+			       Projection == other.Projection &&
+			       ProjectionYaw == other.ProjectionYaw &&
+			       //QualityDetails.Equals(other.QualityDetails) &&
+			       string.Equals(QualityLevel, other.QualityLevel, StringComparison.InvariantCulture) &&
+			       QualityStatus == other.QualityStatus &&
+			       RawDataId == other.RawDataId &&
+			       SequenceId == other.SequenceId &&
+			       SequenceIndex == other.SequenceIndex &&
+			       Nullable.Equals(ShotDate, other.ShotDate) &&
+			       Status == other.Status &&
+			       string.Equals(Storage, other.Storage, StringComparison.InvariantCulture) &&
+			       To == other.To &&
+			       UnwrapVersion == other.UnwrapVersion &&
+			       VideoId == other.VideoId &&
+			       VideoIndex == other.VideoIndex &&
+			       Visibility == other.Visibility &&
+			       WayId == other.WayId &&
+			       Width == other.Width &&
+			       WrapVersion == other.WrapVersion;
 		}
 
 		public override bool Equals(object? obj)
@@ -460,8 +467,6 @@ namespace KartaViewSharp.V2.Response.Resources.Photo
 			hashCode.Add(OrgCode, StringComparer.InvariantCulture);
 			hashCode.Add((int)Projection);
 			hashCode.Add(ProjectionYaw);
-
-			//hashCode.Add(QualityDetails);
 			hashCode.Add(QualityDetails.Aggregate(0, HashCode.Combine));
 			hashCode.Add(QualityLevel, StringComparer.InvariantCulture);
 			hashCode.Add((int)QualityStatus);
@@ -469,7 +474,6 @@ namespace KartaViewSharp.V2.Response.Resources.Photo
 			hashCode.Add(SequenceId);
 			hashCode.Add(SequenceIndex);
 			hashCode.Add(ShotDate);
-
 			hashCode.Add((int)Status);
 			hashCode.Add(Storage, StringComparer.InvariantCulture);
 			hashCode.Add(To);

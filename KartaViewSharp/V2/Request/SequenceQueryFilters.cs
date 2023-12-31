@@ -81,12 +81,3 @@ public sealed class SequenceQueryFilters : QueryFilters
 	/// </summary>
 	public SequenceJoinResource[]? Join { get; set; }
 }
-
-public enum SequenceJoinResource
-{
-	User = 1,
-	Photo = 2,
-	Photos = 3,
-	Attachment = 4,
-	Attachments = 5,
-}

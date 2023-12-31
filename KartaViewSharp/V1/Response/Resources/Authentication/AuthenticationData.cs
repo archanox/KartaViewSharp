@@ -1,4 +1,5 @@
 ﻿using KartaViewSharp.Common.Converters;
+using KartaViewSharp.V1.Enums;
 using System.Text.Json.Serialization;
 
 namespace KartaViewSharp.V1.Response.Resources.Authentication;
@@ -31,11 +32,4 @@ public class AuthenticationData
 
     [JsonPropertyName("role")]
     public string Role { get; set; }
-}
-
-public enum DriverType
-{
-    Dedicated,
-    Byod,
-    Bau
 }

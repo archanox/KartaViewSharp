@@ -1,5 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 using KartaViewSharp.Common.Converters;
+using KartaViewSharp.V1.Enums;
 
 namespace KartaViewSharp.V1.Response.Resources.MyList;
 
@@ -45,11 +46,4 @@ public class UploadHistory
 
     [JsonPropertyName("points")]
     public Points Points { get; set; }
-}
-
-public enum UserCategory
-{
-    Regular,
-    Driver,
-    Internal
 }

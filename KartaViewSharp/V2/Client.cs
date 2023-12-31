@@ -1,4 +1,5 @@
 ﻿using KartaViewSharp.Common;
+using KartaViewSharp.V2.Enums;
 using KartaViewSharp.V2.Interfaces;
 using KartaViewSharp.V2.Request;
 using KartaViewSharp.V2.Response.Resources.Photo;
@@ -8,7 +9,7 @@ using RestSharp;
 
 namespace KartaViewSharp.V2
 {
-	public class Client : ISequence, ISequenceRawData, ISequenceAttachment, ISequenceBreakdown, ISequenceMetrics, IPhoto, IPhotoPart, IVideo, IUser, IUserMetrics, IDedicatedCampaign, IDashboard, ISimulate, IListener
+    public class Client : ISequence, ISequenceRawData, ISequenceAttachment, ISequenceBreakdown, ISequenceMetrics, IPhoto, IPhotoPart, IVideo, IUser, IUserMetrics, IDedicatedCampaign, IDashboard, ISimulate, IListener
 	{
 		private const string _baseUri = "https://api.openstreetcam.org/2.0";
 
