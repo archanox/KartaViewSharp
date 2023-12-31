@@ -20,7 +20,7 @@ jobs:
     - name: Test with dotnet
       run: dotnet test --logger trx --results-directory "TestResults-${{ env.dotnet-version }}"
     - name: Upload dotnet test results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: dotnet-results-${{ env.dotnet-version }}
         path: TestResults-${{ env.dotnet-version }}
