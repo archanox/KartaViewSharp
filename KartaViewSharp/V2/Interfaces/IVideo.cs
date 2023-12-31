@@ -1,4 +1,4 @@
-﻿using KartaViewSharp.V2.ResponseData.Resources.Sequence;
+﻿using KartaViewSharp.V2.Response.Resources.Sequence;
 
 namespace KartaViewSharp.V2.Interfaces;
 

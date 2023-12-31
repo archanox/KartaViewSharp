@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KartaViewDemo", "KartaViewD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KartaViewSharp", "KartaViewSharp\KartaViewSharp.csproj", "{DCFEA1BE-6180-4FFB-A2B3-AF79137DDD73}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KartaViewSharp.Tests", "KartaViewSharp.Tests\KartaViewSharp.Tests.csproj", "{56F59CBE-7FA8-4A5A-B5DF-3949F5D61FD0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DCFEA1BE-6180-4FFB-A2B3-AF79137DDD73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCFEA1BE-6180-4FFB-A2B3-AF79137DDD73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCFEA1BE-6180-4FFB-A2B3-AF79137DDD73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56F59CBE-7FA8-4A5A-B5DF-3949F5D61FD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56F59CBE-7FA8-4A5A-B5DF-3949F5D61FD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56F59CBE-7FA8-4A5A-B5DF-3949F5D61FD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56F59CBE-7FA8-4A5A-B5DF-3949F5D61FD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

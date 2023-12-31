@@ -1,5 +1,5 @@
-﻿using KartaViewSharp.V2.RequestData;
-using KartaViewSharp.V2.ResponseData.Resources.Sequence;
+﻿using KartaViewSharp.V2.Request;
+using KartaViewSharp.V2.Response.Resources.Sequence;
 using NetTopologySuite.Geometries;
 
 namespace KartaViewSharp.V2.Interfaces;

@@ -1,5 +1,5 @@
-﻿using KartaViewSharp.V2.RequestData;
-using KartaViewSharp.V2.ResponseData.Resources.Photo;
+﻿using KartaViewSharp.V2.Request;
+using KartaViewSharp.V2.Response.Resources.Photo;
 
 namespace KartaViewSharp.V2.Interfaces;
 

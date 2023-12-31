@@ -1,23 +1,24 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
+using KartaViewSharp.Common;
 using KartaViewSharp.V2.Interfaces;
-using KartaViewSharp.V2.RequestData;
-using KartaViewSharp.V2.ResponseData;
-using KartaViewSharp.V2.ResponseData.Resources.Photo;
-using KartaViewSharp.V2.ResponseData.Resources.Sequence;
+using KartaViewSharp.V2.Request;
+using KartaViewSharp.V2.Response;
+using KartaViewSharp.V2.Response.Resources.Photo;
+using KartaViewSharp.V2.Response.Resources.Sequence;
 using NetTopologySuite.Geometries;
 using RestSharp;
 using RestSharp.Serializers.Json;
 
 namespace KartaViewSharp.V2
 {
-    public class Client : ISequence, ISequenceRawData, ISequenceAttachment, ISequenceBreakdown, ISequenceMetrics, IPhoto, IPhotoPart, IVideo, IUser, IUserMetrics, IDedicatedCampaign, IDashboard, ISimulate, IListener
+	public class Client : ISequence, ISequenceRawData, ISequenceAttachment, ISequenceBreakdown, ISequenceMetrics, IPhoto, IPhotoPart, IVideo, IUser, IUserMetrics, IDedicatedCampaign, IDashboard, ISimulate, IListener
 	{
 		private const string _baseUri = "https://api.openstreetcam.org/2.0";
 
 		public async Task<SequenceResponse> RetrieveSequences(SequenceQueryFilters filters)
 		{
-			var client = CreateRestClient<SequenceResponseContext>();
+			var client = RestClientUtil.CreateRestClient<SequenceResponseContext>(_baseUri);
 
 			var request = new RestRequest("/sequence/");
 
@@ -27,15 +28,6 @@ namespace KartaViewSharp.V2
 			return response.Data;
 		}
 
-		private static RestClient CreateRestClient<T>() where T : JsonSerializerContext, new()
-		{
-			return new RestClient(_baseUri,
-				configureSerialization: s => s.UseSystemTextJson(new JsonSerializerOptions
-				{
-					ReferenceHandler = ReferenceHandler.Preserve,
-					TypeInfoResolver = new T()
-				}));
-		}
 
 		public async Task<SequenceResponse> CreateANewSequence()
 		{
@@ -102,21 +94,6 @@ namespace KartaViewSharp.V2
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> GetUserTypeMetricIntervalData()
-		{
-			throw new NotImplementedException();
-		}
-
-		public Task<SequenceResponse> GetUserTypeMetricIntervalData(UserTypeMetric userTypeMetrics)
-		{
-			throw new NotImplementedException();
-		}
-
-		public async Task<SequenceResponse> GetPlatformMetricIntervalData(PlatformMatric platformMetrics)
-		{
-			throw new NotImplementedException();
-		}
-
 		public async Task<SequenceResponse> GetUserTypeMetricIntervalData(UserTypeMetric[] userTypeMetrics, DashboardQueryFilters filters)
 		{
 			throw new NotImplementedException();
@@ -138,11 +115,6 @@ namespace KartaViewSharp.V2
 		}
 
 		public async Task<SequenceResponse> GetPlatformMetricIntervalData(PhotosCountMetric[] photosCountMetrics)
-		{
-			throw new NotImplementedException();
-		}
-
-		public async Task<SequenceResponse> GetPlatformMetricIntervalData(PhotosCountMetric photosCountMetrics)
 		{
 			throw new NotImplementedException();
 		}
@@ -279,7 +251,7 @@ namespace KartaViewSharp.V2
 				throw new ArgumentNullException("Restricted access on GET list if there isn't at least one query parameter provided from the following: id, idInterval, sequenceId, lat and lng.");
 			}
 
-			var client = CreateRestClient<PhotoResponseContext>();
+			var client = RestClientUtil.CreateRestClient<PhotoResponseContext>(_baseUri);
 
 			var request = new RestRequest("/photo/");
 
