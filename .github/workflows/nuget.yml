@@ -18,7 +18,7 @@ jobs:
       - run: dotnet build --configuration Release KartaViewSharp
       - name: Create the package
         run: dotnet pack --configuration Release KartaViewSharp
-      - name: Publish the package to GPR
+      - name: Publish the package to nuget
         run: dotnet nuget push KartaViewSharp/bin/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json
         env:
           NUGET_AUTH_TOKEN: ${{secrets.NUGET_API_KEY}}
