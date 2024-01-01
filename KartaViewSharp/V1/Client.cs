@@ -107,6 +107,11 @@ namespace KartaViewSharp.V1
 			throw new NotImplementedException();
 		}
 
+		public Task<object> UploadPhoto(int sequenceId, int sequenceIndex, Coordinate coordinate, byte[] photo, string accessToken)
+		{
+			throw new NotImplementedException();
+		}
+
 		public async Task<object> RemovePhoto(int photoId, string accessToken)
 		{
 			throw new NotImplementedException();

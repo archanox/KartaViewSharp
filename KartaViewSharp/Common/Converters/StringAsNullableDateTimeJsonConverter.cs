@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace KartaViewSharp.Common.Converters;
 
-public class StringAsNullableDateTimeJsonConverter : JsonConverter<DateTime?>
+internal class StringAsNullableDateTimeJsonConverter : JsonConverter<DateTime?>
 {
     public override DateTime? Read(
         ref Utf8JsonReader reader,

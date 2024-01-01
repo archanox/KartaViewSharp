@@ -4,7 +4,7 @@ using KartaViewSharp.V2.Enums;
 
 namespace KartaViewSharp.Common.Converters;
 
-public class StringAsSequenceStatusJsonConverter : JsonConverter<SequenceStatus>
+internal class StringAsSequenceStatusJsonConverter : JsonConverter<SequenceStatus>
 {
     public override SequenceStatus Read(
         ref Utf8JsonReader reader,

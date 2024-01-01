@@ -4,7 +4,7 @@ using KartaViewSharp.V1.Enums;
 
 namespace KartaViewSharp.Common.Converters;
 
-public class StringAsDriverTypeJsonConverter : JsonConverter<DriverType>
+internal class StringAsDriverTypeJsonConverter : JsonConverter<DriverType>
 {
     public override DriverType Read(
         ref Utf8JsonReader reader,

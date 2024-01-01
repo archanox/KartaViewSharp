@@ -1,12 +1,10 @@
-﻿using KartaViewSharp.V2.Response.Resources.Sequence;
+﻿namespace KartaViewSharp.V2.Interfaces;
 
-namespace KartaViewSharp.V2.Interfaces;
-
-public interface ISimulate
+internal interface ISimulate
 {
-    Task<SequenceResponse> TestTheBlurImagesFunctionalityIncludingTheApolloDetectionsPipeline();
+    Task<object> TestTheBlurImagesFunctionalityIncludingTheApolloDetectionsPipeline();
 
-    Task<SequenceResponse> TestTheBlurImagesFunctionalityIgnoringDetections();
+    Task<object> TestTheBlurImagesFunctionalityIgnoringDetections();
 
-    Task<SequenceResponse> NotifyApolloWhenASequenceHasBeenProcessed();
+    Task<object> NotifyApolloWhenASequenceHasBeenProcessed();
 }

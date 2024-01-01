@@ -1,16 +1,14 @@
-﻿using KartaViewSharp.V2.Response.Resources.Sequence;
+﻿namespace KartaViewSharp.V2.Interfaces;
 
-namespace KartaViewSharp.V2.Interfaces;
-
-public interface ISequenceAttachment
+internal interface ISequenceAttachment
 {
-    Task<SequenceResponse> RetrieveSequenceAttachments();
+    Task<object> RetrieveSequenceAttachments();
 
-    Task<SequenceResponse> CreateANewSequenceAttachment(string authToken);
+    Task<object> CreateANewSequenceAttachment(string authToken);
 
-    Task<SequenceResponse> GetTheDetailsOfASequenceAttachment(int sequenceAttachmentId);
+    Task<object> GetTheDetailsOfASequenceAttachment(int sequenceAttachmentId);
 
-    Task<SequenceResponse> UpdateTheDetailsOfASequenceAttachment(int sequenceAttachmentId, string authToken);
+    Task<object> UpdateTheDetailsOfASequenceAttachment(int sequenceAttachmentId, string authToken);
 
-    Task<SequenceResponse> DeleteASequenceAttachment(int sequenceAttachementId);
+    Task<object> DeleteASequenceAttachment(int sequenceAttachementId);
 }

@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace KartaViewSharp.Common.Converters;
 
-public class StringAsNullableIntJsonConverter : JsonConverter<int?>
+internal class StringAsNullableIntJsonConverter : JsonConverter<int?>
 {
     public override int? Read(
         ref Utf8JsonReader reader,

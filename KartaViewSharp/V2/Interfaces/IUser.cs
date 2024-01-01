@@ -1,14 +1,12 @@
-﻿using KartaViewSharp.V2.Response.Resources.Sequence;
+﻿namespace KartaViewSharp.V2.Interfaces;
 
-namespace KartaViewSharp.V2.Interfaces;
-
-public interface IUser
+internal interface IUser
 {
-    Task<SequenceResponse> RetrieveUsers();
+    Task<object> RetrieveUsers();
 
-    Task<SequenceResponse> GetTheDetailsOfAUser(string userId);
+    Task<object> GetTheDetailsOfAUser(string userId);
 
-    Task<SequenceResponse> DeleteAUser(string userId);
+    Task<object> DeleteAUser(string userId);
 
-    Task<SequenceResponse> GetTheMetricsDetailsOfAUser(string userId);
+    Task<object> GetTheMetricsDetailsOfAUser(string userId);
 }

@@ -4,7 +4,7 @@ using KartaViewSharp.Common.Converters;
 
 namespace KartaViewSharp.V1.Response.Resources.MyList;
 
-public class Points
+public sealed class Points
 {
     [JsonPropertyName("id")]
     [JsonConverter(typeof(StringAsIntJsonConverter))]

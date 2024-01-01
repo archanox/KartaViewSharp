@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace KartaViewSharp.Common.Converters;
 
-public class StringAsDoubleJsonConverter : JsonConverter<double>
+internal class StringAsDoubleJsonConverter : JsonConverter<double>
 {
     public override double Read(
         ref Utf8JsonReader reader,

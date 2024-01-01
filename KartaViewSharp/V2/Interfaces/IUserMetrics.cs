@@ -1,8 +1,6 @@
-﻿using KartaViewSharp.V2.Response.Resources.Sequence;
+﻿namespace KartaViewSharp.V2.Interfaces;
 
-namespace KartaViewSharp.V2.Interfaces;
-
-public interface IUserMetrics
+internal interface IUserMetrics
 {
-    Task<SequenceResponse> GetTheMetricsDetailsOfAUser(int userId);
+    Task<object> GetTheMetricsDetailsOfAUser(int userId);
 }

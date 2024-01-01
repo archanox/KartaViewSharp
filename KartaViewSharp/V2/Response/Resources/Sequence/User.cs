@@ -4,7 +4,7 @@ using KartaViewSharp.V1.Enums;
 
 namespace KartaViewSharp.V2.Response.Resources.Sequence;
 
-public class User : IEquatable<User>
+public sealed class User : IEquatable<User>
 {
 	[JsonPropertyName("id")]
 	[JsonConverter(typeof(StringAsIntJsonConverter))]

@@ -1,36 +1,35 @@
 ﻿using KartaViewSharp.V2.Enums;
 using KartaViewSharp.V2.Request;
-using KartaViewSharp.V2.Response.Resources.Sequence;
 
 namespace KartaViewSharp.V2.Interfaces;
 
-public interface IDashboard
+internal interface IDashboard
 {
-    Task<SequenceResponse> GetUserTypeMetricIntervalData(UserTypeMetric[] userTypeMetrics, DashboardQueryFilters filters);
+    Task<object> GetUserTypeMetricIntervalData(UserTypeMetric[] userTypeMetrics, DashboardQueryFilters filters);
 
-    Task<SequenceResponse> GetPlatformMetricIntervalData(PlatformMatric[] platformMetrics);
+    Task<object> GetPlatformMetricIntervalData(PlatformMatric[] platformMetrics);
 
-    Task<SequenceResponse> GetUniqueDistanceMetricIntervalData();
+    Task<object> GetUniqueDistanceMetricIntervalData();
 
-    Task<SequenceResponse> GetTotalDistanceMetricIntervalData();
+    Task<object> GetTotalDistanceMetricIntervalData();
 
-    Task<SequenceResponse> GetPlatformMetricIntervalData(PhotosCountMetric[] photosCountMetrics);
+    Task<object> GetPlatformMetricIntervalData(PhotosCountMetric[] photosCountMetrics);
 
-    Task<SequenceResponse> GetMetricsDataBasedOnMetricType();
+    Task<object> GetMetricsDataBasedOnMetricType();
 
-    Task<SequenceResponse> GetTheDetailsOfASequence(int dashboardSequenceId);
+    Task<object> GetTheDetailsOfASequence(int dashboardSequenceId);
 
-    Task<SequenceResponse> RetrieveSequences();
+    Task<object> RetrieveSequences();
 
-    Task<SequenceResponse> GetTheDetailsOfAUser(int dashboardUserId);
+    Task<object> GetTheDetailsOfAUser(int dashboardUserId);
 
-    Task<SequenceResponse> RetrieveUsers();
+    Task<object> RetrieveUsers();
 
-    Task<SequenceResponse> GetTheDetailsOfAnIssue(int dashboardIssueId);
+    Task<object> GetTheDetailsOfAnIssue(int dashboardIssueId);
 
-    Task<SequenceResponse> RetrieveIssues();
+    Task<object> RetrieveIssues();
 
-    Task<SequenceResponse> GetTheDetailsOfARegion(int dashboardRegionId);
+    Task<object> GetTheDetailsOfARegion(int dashboardRegionId);
 
-    Task<SequenceResponse> RetrieveVisibleRegions();
+    Task<object> RetrieveVisibleRegions();
 }

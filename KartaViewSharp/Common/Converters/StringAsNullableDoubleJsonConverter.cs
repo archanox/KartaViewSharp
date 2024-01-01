@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace KartaViewSharp.Common.Converters;
 
-public class StringAsNullableDoubleJsonConverter : JsonConverter<double?>
+internal class StringAsNullableDoubleJsonConverter : JsonConverter<double?>
 {
     public override double? Read(
         ref Utf8JsonReader reader,

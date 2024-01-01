@@ -3,7 +3,7 @@ using RestSharp;
 
 namespace KartaViewSharp.V2.Request;
 
-static class CommonQueryFilters
+internal static class CommonQueryFilters
 {
 	internal static void AddCommonFilters(this QueryFilters filters, RestRequest request)
 	{

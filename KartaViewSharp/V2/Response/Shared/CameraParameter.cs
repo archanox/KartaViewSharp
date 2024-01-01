@@ -3,7 +3,7 @@
 namespace KartaViewSharp.V2.Response.Shared;
 
 [JsonSerializable(typeof(CameraParameter), GenerationMode = JsonSourceGenerationMode.Metadata)]
-public class CameraParameter : IEquatable<CameraParameter>
+public sealed class CameraParameter : IEquatable<CameraParameter>
 {
     /// <summary>
     /// Precentage where f is the focal length, and D is the diameter of the entrance pupil.

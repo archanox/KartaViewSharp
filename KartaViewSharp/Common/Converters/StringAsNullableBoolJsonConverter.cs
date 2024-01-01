@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace KartaViewSharp.Common.Converters;
 
-public class StringAsNullableBoolJsonConverter : JsonConverter<bool?>
+internal class StringAsNullableBoolJsonConverter : JsonConverter<bool?>
 {
     public override bool? Read(
         ref Utf8JsonReader reader,

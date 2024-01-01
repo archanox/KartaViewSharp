@@ -15,7 +15,7 @@ namespace KartaViewSharp.V1.Interfaces;
 /// PROCESSING_FINISHED: data processing is finished.
 /// PROCESSING_FAILED: data processing failed.
 /// </summary>
-public interface ISequence
+internal interface ISequence
 {
     /// <summary>
     /// Get Sequence details.

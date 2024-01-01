@@ -90,152 +90,152 @@ namespace KartaViewSharp.V2
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> GetUserTypeMetricIntervalData(UserTypeMetric[] userTypeMetrics, DashboardQueryFilters filters)
+		public async Task<object> GetUserTypeMetricIntervalData(UserTypeMetric[] userTypeMetrics, DashboardQueryFilters filters)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> GetPlatformMetricIntervalData(PlatformMatric[] platformMetrics)
+		public async Task<object> GetPlatformMetricIntervalData(PlatformMatric[] platformMetrics)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> GetUniqueDistanceMetricIntervalData()
+		public async Task<object> GetUniqueDistanceMetricIntervalData()
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> GetTotalDistanceMetricIntervalData()
+		public async Task<object> GetTotalDistanceMetricIntervalData()
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> GetPlatformMetricIntervalData(PhotosCountMetric[] photosCountMetrics)
+		public async Task<object> GetPlatformMetricIntervalData(PhotosCountMetric[] photosCountMetrics)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> GetMetricsDataBasedOnMetricType()
+		public async Task<object> GetMetricsDataBasedOnMetricType()
 		{
 			throw new NotImplementedException();
 		}
 
-		async Task<SequenceResponse> IDashboard.GetTheDetailsOfASequence(int dashboardSequenceId)
+		async Task<object> IDashboard.GetTheDetailsOfASequence(int dashboardSequenceId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> RetrieveSequences()
+		public async Task<object> RetrieveSequences()
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> GetTheDetailsOfAUser(int dashboardUserId)
+		public async Task<object> GetTheDetailsOfAUser(int dashboardUserId)
 		{
 			throw new NotImplementedException();
 		}
 
-		async Task<SequenceResponse> IDashboard.RetrieveUsers()
+		async Task<object> IDashboard.RetrieveUsers()
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> GetTheDetailsOfAnIssue(int dashboardIssueId)
+		public async Task<object> GetTheDetailsOfAnIssue(int dashboardIssueId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> RetrieveIssues()
+		public async Task<object> RetrieveIssues()
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> GetTheDetailsOfARegion(int dashboardRegionId)
+		public async Task<object> GetTheDetailsOfARegion(int dashboardRegionId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> RetrieveVisibleRegions()
+		public async Task<object> RetrieveVisibleRegions()
 		{
 			throw new NotImplementedException();
 		}
 
-		async Task<SequenceResponse> IUser.RetrieveUsers()
+		async Task<object> IUser.RetrieveUsers()
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> GetTheDetailsOfAUser(string userId)
+		public async Task<object> GetTheDetailsOfAUser(string userId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> DeleteAUser(string userId)
+		public async Task<object> DeleteAUser(string userId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> GetTheMetricsDetailsOfAUser(string userId)
+		public async Task<object> GetTheMetricsDetailsOfAUser(string userId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> RetrieveSequenceRawdatas()
+		public async Task<object> RetrieveSequenceRawdatas()
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> CreateANewSequenceRawdata(string authToken)
+		public async Task<object> CreateANewSequenceRawdata(string authToken)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> UpdateTheDetailsOfASequenceRawdata(int sequenceRawDataId, string authToken)
+		public async Task<object> UpdateTheDetailsOfASequenceRawdata(int sequenceRawDataId, string authToken)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> GetTheDetailsOfASequenceRawdata(int sequenceRawDataId)
+		public async Task<object> GetTheDetailsOfASequenceRawdata(int sequenceRawDataId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> DeleteASequenceRawdata(int sequenceRawDataId)
+		public async Task<object> DeleteASequenceRawdata(int sequenceRawDataId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> RetrieveSequenceAttachments()
+		public async Task<object> RetrieveSequenceAttachments()
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> CreateANewSequenceAttachment(string authToken)
+		public async Task<object> CreateANewSequenceAttachment(string authToken)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> GetTheDetailsOfASequenceAttachment(int sequenceAttachmentId)
+		public async Task<object> GetTheDetailsOfASequenceAttachment(int sequenceAttachmentId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> UpdateTheDetailsOfASequenceAttachment(int sequenceAttachmentId, string authToken)
+		public async Task<object> UpdateTheDetailsOfASequenceAttachment(int sequenceAttachmentId, string authToken)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> DeleteASequenceAttachment(int sequenceAttachementId)
+		public async Task<object> DeleteASequenceAttachment(int sequenceAttachementId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> RetrieveSequenceBreakdowns()
+		public async Task<object> RetrieveSequenceBreakdowns()
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> GetTheBreakdownDetailsOfASequence(int sequenceId)
+		public async Task<object> GetTheBreakdownDetailsOfASequence(int sequenceId)
 		{
 			throw new NotImplementedException();
 		}
@@ -282,137 +282,157 @@ namespace KartaViewSharp.V2
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> RetrievePhotoParts()
+		public async Task<object> RetrievePhotoParts()
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> CreateANewPhotoPart(string authToken)
+		public async Task<object> CreateANewPhotoPart(string authToken)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> UpdateTheDetailsOfAPhotoPart(int photoPartId, string authToken)
+		public async Task<object> UpdateTheDetailsOfAPhotoPart(int photoPartId, string authToken)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> GetTheDetailsOfAPhotoPart(int photoPartId)
+		public async Task<object> GetTheDetailsOfAPhotoPart(int photoPartId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> DeleteAPhotoPart(int photoPartId)
+		public async Task<object> DeleteAPhotoPart(int photoPartId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> RetrieveVideos()
+		public async Task<object> RetrieveVideos()
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> CreateANewVideo(string authToken)
+		public async Task<object> CreateANewVideo(string authToken)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> UpdateTheDetailsOfAVideo(int videoId, string authToken)
+		public async Task<object> UpdateTheDetailsOfAVideo(int videoId, string authToken)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> GetTheDetailsOfAVideo(int videoId)
+		public async Task<object> GetTheDetailsOfAVideo(int videoId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> DeleteAVideo(int videoId)
+		public async Task<object> DeleteAVideo(int videoId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> GetTheMetricsDetailsOfAUser(int userId)
+		public async Task<object> GetTheMetricsDetailsOfAUser(int userId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> RetrieveDedicatedCampaigns()
+		public async Task<object> RetrieveDedicatedCampaigns()
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> CreateANewDedicatedCampaign(string authToken)
+		public async Task<object> CreateANewDedicatedCampaign(string authToken)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> UpdateTheDetailsOfADedicatedCampaign(int dedicatedCampaignId, string authToken)
+		public async Task<object> UpdateTheDetailsOfADedicatedCampaign(int dedicatedCampaignId, string authToken)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> GetTheDetailsOfADedicatedCampaign(int dedicatedCampaignId)
+		public async Task<object> GetTheDetailsOfADedicatedCampaign(int dedicatedCampaignId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> DeleteADedicatedCampaign(int dedicatedCampaignId)
+		public async Task<object> DeleteADedicatedCampaign(int dedicatedCampaignId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> RetrieveTheCellsOfADedicatedCampaign(int dedicatedCampaignId)
+		public async Task<object> RetrieveTheCellsOfADedicatedCampaign(int dedicatedCampaignId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> CreateANewDedicatedCampaignCell(string authToken)
+		public async Task<object> CreateANewDedicatedCampaignCell(string authToken)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> UpdateTheDetailsOfADedicatedCampaignCell(int dedicatedCampaignCellId, string authToken)
+		public async Task<object> UpdateTheDetailsOfADedicatedCampaignCell(int dedicatedCampaignCellId, string authToken)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> GetTheDetailsOfADedicatedCampaignCell(int dedicatedCampaignCellId)
+		public async Task<object> GetTheDetailsOfADedicatedCampaignCell(int dedicatedCampaignCellId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> DeleteADedicatedCampaignCell(int dedicatedCampaignCellId)
+		public async Task<object> DeleteADedicatedCampaignCell(int dedicatedCampaignCellId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> RetrieveIntervalMetricsUsedForDashboardCharts(int dedicatedCampaignId)
+		public async Task<object> RetrieveIntervalMetricsUsedForDashboardCharts(int dedicatedCampaignId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> TestTheBlurImagesFunctionalityIncludingTheApolloDetectionsPipeline()
+		public async Task<object> TestTheBlurImagesFunctionalityIncludingTheApolloDetectionsPipeline()
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> TestTheBlurImagesFunctionalityIgnoringDetections()
+		public async Task<object> TestTheBlurImagesFunctionalityIgnoringDetections()
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> NotifyApolloWhenASequenceHasBeenProcessed()
+		public async Task<object> NotifyApolloWhenASequenceHasBeenProcessed()
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> CreateTasksToBlurPhotosWhenDetectionsArePresent()
+		public async Task<object> CreateTasksToBlurPhotosWhenDetectionsArePresent()
 		{
 			throw new NotImplementedException();
 		}
 
-		public async Task<SequenceResponse> RetrieveMaintenances()
+		public async Task<object> RetrieveMaintenances()
+		{
+			throw new NotImplementedException();
+		}
+
+		public Task<object> RetrieveUsers()
+		{
+			throw new NotImplementedException();
+		}
+
+		Task<object> IUser.GetTheDetailsOfAUser(string userId)
+		{
+			throw new NotImplementedException();
+		}
+
+		Task<object> IUser.DeleteAUser(string userId)
+		{
+			throw new NotImplementedException();
+		}
+
+		Task<object> IUser.GetTheMetricsDetailsOfAUser(string userId)
 		{
 			throw new NotImplementedException();
 		}

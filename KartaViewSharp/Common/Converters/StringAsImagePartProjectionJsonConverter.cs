@@ -4,7 +4,7 @@ using KartaViewSharp.V2.Enums;
 
 namespace KartaViewSharp.Common.Converters;
 
-public class StringAsImagePartProjectionJsonConverter : JsonConverter<ImagePartProjection>
+internal class StringAsImagePartProjectionJsonConverter : JsonConverter<ImagePartProjection>
 {
     public override ImagePartProjection Read(
         ref Utf8JsonReader reader,

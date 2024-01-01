@@ -4,7 +4,7 @@ using KartaViewSharp.V1.Enums;
 
 namespace KartaViewSharp.Common.Converters;
 
-public class StringAsUserCategoryJsonConverter : JsonConverter<UserCategory>
+internal class StringAsUserCategoryJsonConverter : JsonConverter<UserCategory>
 {
     public override UserCategory Read(
         ref Utf8JsonReader reader,

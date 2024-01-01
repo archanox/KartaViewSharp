@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace KartaViewSharp.Common.Response;
 
-public class ResponseStatus
+public sealed class ResponseStatus
 {
     /// <summary>
     /// API Code

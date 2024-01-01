@@ -4,7 +4,7 @@ using ISO3166;
 
 namespace KartaViewSharp.Common.Converters;
 
-public class StringAsNullableCountryJsonConverter : JsonConverter<Country?>
+internal class StringAsNullableCountryJsonConverter : JsonConverter<Country?>
 {
     public override Country? Read(
         ref Utf8JsonReader reader,

@@ -1,8 +1,6 @@
-﻿using KartaViewSharp.V2.Response.Resources.Sequence;
+﻿namespace KartaViewSharp.V2.Interfaces;
 
-namespace KartaViewSharp.V2.Interfaces;
-
-public interface ISequenceMetrics
+internal interface ISequenceMetrics
 {
-    Task<SequenceResponse> GetTheBreakdownDetailsOfASequence(int sequenceId);
+    Task<object> GetTheBreakdownDetailsOfASequence(int sequenceId);
 }

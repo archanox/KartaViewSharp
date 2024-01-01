@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace KartaViewSharp.Common.Converters;
 
-public class ObjectAsArrayJsonConverter<T, T2> : JsonConverter<T[]> where T2 : JsonSerializerContext, new()
+internal class ObjectAsArrayJsonConverter<T, T2> : JsonConverter<T[]> where T2 : JsonSerializerContext, new()
 {
     public override T[] Read(
         ref Utf8JsonReader reader,

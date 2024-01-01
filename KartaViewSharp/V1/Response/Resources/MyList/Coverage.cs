@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace KartaViewSharp.V1.Response.Resources.MyList;
 
-public class Coverage
+public sealed class Coverage
 {
     [JsonPropertyName("coverage_value")]
     public string CoverageValue { get; set; }

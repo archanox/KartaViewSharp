@@ -3,7 +3,7 @@ using KartaViewSharp.Common.Response;
 
 namespace KartaViewSharp.V1.Response.Resources.MyList;
 
-public class MyListResponse
+public sealed class MyListResponse
 {
     [JsonPropertyName("status")]
     public ResponseStatus Status { get; set; }

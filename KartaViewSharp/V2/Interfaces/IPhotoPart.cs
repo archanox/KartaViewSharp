@@ -1,16 +1,14 @@
-﻿using KartaViewSharp.V2.Response.Resources.Sequence;
+﻿namespace KartaViewSharp.V2.Interfaces;
 
-namespace KartaViewSharp.V2.Interfaces;
-
-public interface IPhotoPart
+internal interface IPhotoPart
 {
-    Task<SequenceResponse> RetrievePhotoParts();
+    Task<object> RetrievePhotoParts();
 
-    Task<SequenceResponse> CreateANewPhotoPart(string authToken);
+    Task<object> CreateANewPhotoPart(string authToken);
 
-    Task<SequenceResponse> UpdateTheDetailsOfAPhotoPart(int photoPartId, string authToken);
+    Task<object> UpdateTheDetailsOfAPhotoPart(int photoPartId, string authToken);
 
-    Task<SequenceResponse> GetTheDetailsOfAPhotoPart(int photoPartId);
+    Task<object> GetTheDetailsOfAPhotoPart(int photoPartId);
 
-    Task<SequenceResponse> DeleteAPhotoPart(int photoPartId);
+    Task<object> DeleteAPhotoPart(int photoPartId);
 }

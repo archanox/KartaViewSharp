@@ -1,10 +1,8 @@
-﻿using KartaViewSharp.V2.Response.Resources.Sequence;
+﻿namespace KartaViewSharp.V2.Interfaces;
 
-namespace KartaViewSharp.V2.Interfaces;
-
-public interface IListener
+internal interface IListener
 {
-    Task<SequenceResponse> CreateTasksToBlurPhotosWhenDetectionsArePresent();
+    Task<object> CreateTasksToBlurPhotosWhenDetectionsArePresent();
 
-    Task<SequenceResponse> RetrieveMaintenances();
+    Task<object> RetrieveMaintenances();
 }

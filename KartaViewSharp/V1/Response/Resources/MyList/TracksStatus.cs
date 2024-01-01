@@ -2,7 +2,7 @@
 
 namespace KartaViewSharp.V1.Response.Resources.MyList;
 
-public class TracksStatus
+public sealed class TracksStatus
 {
     [JsonPropertyName("uploading")]
     public int Uploading { get; set; }

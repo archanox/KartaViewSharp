@@ -4,7 +4,7 @@ using NetTopologySuite.Geometries;
 
 namespace KartaViewSharp.V2.Interfaces;
 
-public interface ISequence
+internal interface ISequence
 {
     Task<SequenceResponse> RetrieveSequences(SequenceQueryFilters filters);
 

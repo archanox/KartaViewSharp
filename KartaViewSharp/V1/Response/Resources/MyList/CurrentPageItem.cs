@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace KartaViewSharp.V1.Response.Resources.MyList;
 
-public class CurrentPageItem
+public sealed class CurrentPageItem
 {
     [JsonPropertyName("id")]
     [JsonConverter(typeof(StringAsIntJsonConverter))]

@@ -1,28 +1,26 @@
-﻿using KartaViewSharp.V2.Response.Resources.Sequence;
+﻿namespace KartaViewSharp.V2.Interfaces;
 
-namespace KartaViewSharp.V2.Interfaces;
-
-public interface IDedicatedCampaign
+internal interface IDedicatedCampaign
 {
-    Task<SequenceResponse> RetrieveDedicatedCampaigns();
+    Task<object> RetrieveDedicatedCampaigns();
 
-    Task<SequenceResponse> CreateANewDedicatedCampaign(string authToken);
+    Task<object> CreateANewDedicatedCampaign(string authToken);
 
-    Task<SequenceResponse> UpdateTheDetailsOfADedicatedCampaign(int dedicatedCampaignId, string authToken);
+    Task<object> UpdateTheDetailsOfADedicatedCampaign(int dedicatedCampaignId, string authToken);
 
-    Task<SequenceResponse> GetTheDetailsOfADedicatedCampaign(int dedicatedCampaignId);
+    Task<object> GetTheDetailsOfADedicatedCampaign(int dedicatedCampaignId);
 
-    Task<SequenceResponse> DeleteADedicatedCampaign(int dedicatedCampaignId);
+    Task<object> DeleteADedicatedCampaign(int dedicatedCampaignId);
 
-    Task<SequenceResponse> RetrieveTheCellsOfADedicatedCampaign(int dedicatedCampaignId);
+    Task<object> RetrieveTheCellsOfADedicatedCampaign(int dedicatedCampaignId);
 
-    Task<SequenceResponse> CreateANewDedicatedCampaignCell(string authToken);
+    Task<object> CreateANewDedicatedCampaignCell(string authToken);
 
-    Task<SequenceResponse> UpdateTheDetailsOfADedicatedCampaignCell(int dedicatedCampaignCellId, string authToken);
+    Task<object> UpdateTheDetailsOfADedicatedCampaignCell(int dedicatedCampaignCellId, string authToken);
 
-    Task<SequenceResponse> GetTheDetailsOfADedicatedCampaignCell(int dedicatedCampaignCellId);
+    Task<object> GetTheDetailsOfADedicatedCampaignCell(int dedicatedCampaignCellId);
 
-    Task<SequenceResponse> DeleteADedicatedCampaignCell(int dedicatedCampaignCellId);
+    Task<object> DeleteADedicatedCampaignCell(int dedicatedCampaignCellId);
 
-    Task<SequenceResponse> RetrieveIntervalMetricsUsedForDashboardCharts(int dedicatedCampaignId);
+    Task<object> RetrieveIntervalMetricsUsedForDashboardCharts(int dedicatedCampaignId);
 }

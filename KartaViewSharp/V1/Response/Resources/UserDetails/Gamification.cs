@@ -3,7 +3,7 @@ using KartaViewSharp.Common.Converters;
 
 namespace KartaViewSharp.V1.Response.Resources.UserDetails;
 
-public class Gamification
+public sealed class Gamification
 {
     [JsonPropertyName("total_user_points")]
     [JsonConverter(typeof(StringAsIntJsonConverter))]

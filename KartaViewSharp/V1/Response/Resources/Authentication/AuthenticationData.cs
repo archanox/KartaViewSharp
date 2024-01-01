@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace KartaViewSharp.V1.Response.Resources.Authentication;
 
-public class AuthenticationData
+public sealed class AuthenticationData
 {
     [JsonPropertyName("access_token")]
     public string AccessToken { get; set; }

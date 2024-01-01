@@ -4,7 +4,7 @@ using KartaViewSharp.V1.Enums;
 
 namespace KartaViewSharp.V1.Response.Resources.MyList;
 
-public class UploadHistory
+public sealed class UploadHistory
 {
     [JsonPropertyName("id")]
     [JsonConverter(typeof(StringAsIntJsonConverter))]

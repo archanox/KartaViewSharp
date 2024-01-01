@@ -3,7 +3,7 @@ using KartaViewSharp.Common.Response;
 
 namespace KartaViewSharp.V1.Response.Resources.Authentication;
 
-public class AuthenticationResponse
+public sealed class AuthenticationResponse
 {
     [JsonPropertyName("status")]
     public ResponseStatus Status { get; set; }

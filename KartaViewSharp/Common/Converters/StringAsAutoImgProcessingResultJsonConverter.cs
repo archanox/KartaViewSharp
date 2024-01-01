@@ -4,7 +4,7 @@ using KartaViewSharp.V2.Enums;
 
 namespace KartaViewSharp.Common.Converters;
 
-public class StringAsAutoImgProcessingResultJsonConverter : JsonConverter<AutoImgProcessingResult>
+internal class StringAsAutoImgProcessingResultJsonConverter : JsonConverter<AutoImgProcessingResult>
 {
     public override AutoImgProcessingResult Read(
         ref Utf8JsonReader reader,

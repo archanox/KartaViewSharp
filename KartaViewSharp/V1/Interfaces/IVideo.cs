@@ -8,7 +8,7 @@
 /// NEW: video isn't processed yet.
 /// SPLIT_FINISH: video split is finished.
 /// </summary>
-public interface IVideo
+internal interface IVideo
 {
     /// <summary>
     /// The video contains all the recorded sequences'photos.

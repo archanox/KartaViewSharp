@@ -4,7 +4,7 @@ using KartaViewSharp.V2.Enums;
 
 namespace KartaViewSharp.Common.Converters;
 
-public class StringAsVisibilityJsonConverter : JsonConverter<Visibility>
+internal class StringAsVisibilityJsonConverter : JsonConverter<Visibility>
 {
     public override Visibility Read(
         ref Utf8JsonReader reader,

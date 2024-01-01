@@ -6,7 +6,7 @@ namespace KartaViewSharp.V1.Interfaces;
 /// For each secured method you have to use the access_token parameter.
 /// In order to get the access_token, you have to get the request_token and secret token returned after OAuth authentification on OSM.
 /// </summary>
-public interface IAuthentication
+internal interface IAuthentication
 {
     /// <summary>
     /// OpenStreetCam authentication uses request_token and secret_token obtained after OAuth authentication on OSM.

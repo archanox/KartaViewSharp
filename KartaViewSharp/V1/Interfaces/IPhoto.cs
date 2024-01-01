@@ -1,4 +1,6 @@
-﻿namespace KartaViewSharp.V1.Interfaces;
+﻿using NetTopologySuite.Geometries;
+
+namespace KartaViewSharp.V1.Interfaces;
 
 /// <summary>
 /// Photo methods provide access to information and operations relating to the photos.
@@ -10,18 +12,18 @@
 /// PROCESSING: Photo is processing.
 /// FINISHED: photo processing is running.
 /// </summary>
-public interface IPhoto
+internal interface IPhoto
 {
     /// <summary>
     /// Upload the sequence's photo.
     /// </summary>
     /// <param name="sequenceId"></param>
     /// <param name="sequenceIndex"></param>
-    /// <param name="coordinate">Coordinates where the photo was taken. Valid format: ('lat,long')</param>
+    /// <param name="coordinate">Coordinates where the photo was taken.</param>
     /// <param name="photo"></param>
     /// <param name="accessToken"></param>
     /// <returns></returns>
-    Task<object> UploadPhoto(int sequenceId, int sequenceIndex, string coordinate, byte[] photo, string accessToken);
+    Task<object> UploadPhoto(int sequenceId, int sequenceIndex, Coordinate coordinate, byte[] photo, string accessToken);
 
     /// <summary>
     /// Remove a photo by specifying photo ID.

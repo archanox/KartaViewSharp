@@ -2,7 +2,7 @@
 
 namespace KartaViewSharp.V2.Request;
 
-public class DashboardQueryFilters
+public sealed class DashboardQueryFilters : QueryFilters
 {
     /// <summary>
     /// Retrieve data based on one of the intervals.

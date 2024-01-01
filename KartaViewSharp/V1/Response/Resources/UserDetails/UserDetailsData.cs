@@ -4,7 +4,7 @@ using KartaViewSharp.V1.Enums;
 
 namespace KartaViewSharp.V1.Response.Resources.UserDetails;
 
-public class UserDetailsData
+public sealed class UserDetailsData
 {
     [JsonPropertyName("username")]
     public string Username { get; set; }

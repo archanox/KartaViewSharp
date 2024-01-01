@@ -7,7 +7,7 @@ namespace KartaViewSharp.V1.Interfaces;
 /// All the uploaded sequences are maped to the map's segments.
 /// So each map's segement belongs to one or multiple sequences.
 /// </summary>
-public interface IMap
+internal interface IMap
 {
 	/// <summary>
 	/// Get list of nearby sequences, in radius of specified distance and location.

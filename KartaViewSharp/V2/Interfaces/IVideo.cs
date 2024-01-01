@@ -1,16 +1,14 @@
-﻿using KartaViewSharp.V2.Response.Resources.Sequence;
+﻿namespace KartaViewSharp.V2.Interfaces;
 
-namespace KartaViewSharp.V2.Interfaces;
-
-public interface IVideo
+internal interface IVideo
 {
-    Task<SequenceResponse> RetrieveVideos();
+    Task<object> RetrieveVideos();
 
-    Task<SequenceResponse> CreateANewVideo(string authToken);
+    Task<object> CreateANewVideo(string authToken);
 
-    Task<SequenceResponse> UpdateTheDetailsOfAVideo(int videoId, string authToken);
+    Task<object> UpdateTheDetailsOfAVideo(int videoId, string authToken);
 
-    Task<SequenceResponse> GetTheDetailsOfAVideo(int videoId);
+    Task<object> GetTheDetailsOfAVideo(int videoId);
 
-    Task<SequenceResponse> DeleteAVideo(int videoId);
+    Task<object> DeleteAVideo(int videoId);
 }
