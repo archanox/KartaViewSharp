@@ -23,6 +23,10 @@ jobs:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.dotnet-version }}
       - name: Test with dotnet
         run: dotnet test --logger trx --results-directory "TestResults-${{ env.dotnet-version }}"
       - name: Upload dotnet test results
