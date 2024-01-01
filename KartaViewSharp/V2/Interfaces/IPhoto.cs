@@ -3,7 +3,7 @@ using KartaViewSharp.V2.Response.Resources.Photo;
 
 namespace KartaViewSharp.V2.Interfaces;
 
-public interface IPhoto
+internal interface IPhoto
 {
     Task<PhotoResponse> RetrievePhotos(PhotoQueryFilters filters);
 
