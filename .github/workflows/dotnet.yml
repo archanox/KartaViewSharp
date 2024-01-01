@@ -1,8 +1,19 @@
 name: .NET Build, Test, and Publish Nuget Package
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+permissions:
+  actions: read
+  pages: write
+  id-token: write
 env:
   dotnet-version: 8.0.x
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
     
 jobs:
   build:
@@ -52,18 +63,30 @@ jobs:
   deploy-docs:
     name: Deploy Docs
     needs: [build, test]
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Build Documentation
-      uses: nikeee/docfx-action@v1.0.0
+      uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
       with:
-        args: docfx.json
+        dotnet-version: ${{ env.dotnet-version }}
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
 
+    - run: dotnet tool update -g docfx
+    - run: docfx docfx.json
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        # Upload entire repository
+        path: '_site'
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs
+      id: deployment
+      uses: actions/deploy-pages@v4
