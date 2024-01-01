@@ -1,20 +1,17 @@
 name: Documentation
-
 on:
   push:
     branches:
-      - main
+      - master
 permissions:
   actions: read
   pages: write
   id-token: write
 env:
   dotnet-version: 8.0.x
-
 concurrency:
   group: "pages"
   cancel-in-progress: false
-    
 jobs:
   deploy-docs:
     name: Deploy Docs
@@ -33,10 +30,8 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
-
     - run: dotnet tool update -g docfx
     - run: docfx docfx.json
-
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:

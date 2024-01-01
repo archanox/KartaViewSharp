@@ -1,12 +1,10 @@
 name: Build & Test
-
 on:
   push:
     branches:
-      - main
+      - master
 env:
   dotnet-version: 8.0.x
-    
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,34 +18,35 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore -c Release
-    
   test:
     name: Run Tests
     needs: [build]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: ${{ env.dotnet-version }}
-      - name: Test with dotnet
-        run: dotnet test --logger trx --results-directory "TestResults-${{ env.dotnet-version }}"
-      - name: Upload dotnet test results
-        uses: actions/upload-artifact@v4
-        with:
-          name: dotnet-results-${{ env.dotnet-version }}
-          path: TestResults-${{ env.dotnet-version }}
-          # Use always() to always run this step to publish test results when there are test failures
-        if: ${{ always() }}
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      - name: altcover 
-        run: dotnet test /p:AltCover=true /p:AltCoverAssemblyFilter="testhost|Microsoft"
-      - name: Run codacy-coverage-reporter
-        uses: codacy/codacy-coverage-reporter-action@v1
-        with:
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          coverage-reports: "KartaViewSharp.Tests/coverage.net8.0.xml"
-        if: ${{ always() }}
+    - uses: actions/checkout@v4
+    - uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.dotnet-version }}
+    - name: Test with dotnet
+      run: dotnet test --logger trx --results-directory "TestResults-${{ env.dotnet-version }}"
+    - name: Upload dotnet test results
+      uses: actions/upload-artifact@v4
+      with:
+        name: dotnet-results-${{ env.dotnet-version }}
+        path: TestResults-${{ env.dotnet-version }}
+        # Use always() to always run this step to publish test results when there are test failures
+      if: ${{ always() }}
+    - name: altcover 
+      run: dotnet test /p:AltCover=true /p:AltCoverAssemblyFilter="testhost|Microsoft"
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        files: "KartaViewSharp.Tests/coverage.net8.0.xml"
+      if: ${{ always() }}
+    - name: Run codacy-coverage-reporter
+      uses: codacy/codacy-coverage-reporter-action@v1
+      with:
+        project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+        coverage-reports: "KartaViewSharp.Tests/coverage.net8.0.xml"
+      if: ${{ always() }}
