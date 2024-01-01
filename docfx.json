@@ -5,7 +5,7 @@
         {
           "src": "./KartaViewSharp/",
           "files": [
-            "/bin/Release/net8.0/**.dll"
+            "/bin/Debug/net8.0/**.dll"
           ]
         }
       ],

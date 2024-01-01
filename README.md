@@ -5,6 +5,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/archanox/kartaviewsharp/badge)](https://www.codefactor.io/repository/github/archanox/kartaviewsharp)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/10e99a5d3d264be5b1ff6ea46609d006)](https://app.codacy.com/gh/archanox/KartaViewSharp/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/10e99a5d3d264be5b1ff6ea46609d006)](https://app.codacy.com/gh/archanox/KartaViewSharp/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
+[![codecov](https://codecov.io/gh/archanox/KartaViewSharp/graph/badge.svg?token=34FFXQTOKQ)](https://codecov.io/gh/archanox/KartaViewSharp)
 
 ## Features
 - Strong typed request and response objects 💪🏻
