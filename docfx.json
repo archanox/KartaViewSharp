@@ -1,0 +1,49 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "./KartaViewSharp/",
+          "files": [
+            "/bin/Release/net8.0/**.dll"
+          ]
+        }
+      ],
+      "dest": "api",
+      "properties": {
+        "TargetFramework": "net8.0"
+      }
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.{md,yml}"
+        ],
+        "exclude": [
+          "_site/**"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "KartaViewSharp/KartaViewSharp_50px.png"
+        ]
+      }
+    ],
+    "output": "_site",
+    "template": [
+      "default",
+      "modern"
+    ],
+    "globalMetadata": {
+      "_appName": "KartaViewSharp",
+      "_appTitle": "KartaViewSharp",
+      "_enableSearch": true,
+      "pdf": true,
+      "_appLogoPath": "KartaViewSharp/KartaViewSharp_50px.png"
+    }
+  }
+}

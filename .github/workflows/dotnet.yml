@@ -17,24 +17,49 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore -c Release
-    - name: Test with dotnet
-      run: dotnet test --logger trx --results-directory "TestResults-${{ env.dotnet-version }}"
-    - name: Upload dotnet test results
-      uses: actions/upload-artifact@v4
+    
+  test:
+    name: Run Tests
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test with dotnet
+        run: dotnet test --logger trx --results-directory "TestResults-${{ env.dotnet-version }}"
+      - name: Upload dotnet test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: dotnet-results-${{ env.dotnet-version }}
+          path: TestResults-${{ env.dotnet-version }}
+          # Use always() to always run this step to publish test results when there are test failures
+          if: ${{ always() }}
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      - name: altcover 
+        run: dotnet test /p:AltCover=true /p:AltCoverAssemblyFilter="testhost|Microsoft"
+      - name: Run codacy-coverage-reporter
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+            project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+            coverage-reports: "KartaViewSharp.Tests/coverage.net8.0.xml"
+        if: ${{ always() }}
+
+  deploy-docs:
+    name: Deploy Docs
+    needs: [build, test]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Build Documentation
+      uses: nikeee/docfx-action@v1.0.0
       with:
-        name: dotnet-results-${{ env.dotnet-version }}
-        path: TestResults-${{ env.dotnet-version }}
-      # Use always() to always run this step to publish test results when there are test failures
-      if: ${{ always() }}
-    - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@v3
-      env:
-       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-    - name: altcover 
-      run: dotnet test /p:AltCover=true /p:AltCoverAssemblyFilter="testhost|Microsoft"
-    - name: Run codacy-coverage-reporter
-      uses: codacy/codacy-coverage-reporter-action@v1
+        args: docfx.json
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
       with:
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          coverage-reports: "KartaViewSharp.Tests/coverage.net8.0.xml"
-      if: ${{ always() }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs
