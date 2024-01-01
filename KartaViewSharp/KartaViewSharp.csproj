@@ -22,8 +22,10 @@
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 		<EmbedUntrackedSources>True</EmbedUntrackedSources>
 		<PackageIcon>KartaViewSharp.png</PackageIcon>
-		<Version>1.0.4</Version>
+		<Version>1.0.5</Version>
 		<ContinuousIntegrationBuild>True</ContinuousIntegrationBuild>
+		<PackageProjectUrl>https://archanox.github.io/KartaViewSharp/</PackageProjectUrl>
+		<Authors>archanox</Authors>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

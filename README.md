@@ -11,6 +11,9 @@
 - Strong typed request and response objects 💪🏻
 - Native AOT support
 
+## Documentation
+- [V1](https://archanox.github.io/KartaViewSharp/api/KartaViewSharp.V1.Client.html)
+- [V2](https://archanox.github.io/KartaViewSharp/api/KartaViewSharp.V2.Client.html)
 
 ## Original API Documentation
 - [V1](https://api.openstreetcam.org/api/doc.html)
