@@ -30,9 +30,11 @@ jobs:
       uses: codecov/codecov-action@v3
       env:
        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+    - name: altcover 
+      run: dotnet test /p:AltCover=true /p:AltCoverAssemblyFilter="testhost|Microsoft"
     - name: Run codacy-coverage-reporter
       uses: codacy/codacy-coverage-reporter-action@v1
       with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          coverage-reports: "TestResults-${{ env.dotnet-version }}"
+          coverage-reports: "KartaViewSharp.Tests/coverage.net8.0.xml"
       if: ${{ always() }}
