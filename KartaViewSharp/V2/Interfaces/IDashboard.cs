@@ -3,6 +3,9 @@ using KartaViewSharp.V2.Request;
 
 namespace KartaViewSharp.V2.Interfaces;
 
+/// <summary>
+/// Dashboard tool used for metric charts, coverage, tracks, users leaderboard, issues, tagged roads and dedicated campaigns.
+/// </summary>
 internal interface IDashboard
 {
     Task<object> GetUserTypeMetricIntervalData(UserTypeMetric[] userTypeMetrics, DashboardQueryFilters filters);

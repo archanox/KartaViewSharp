@@ -47,6 +47,7 @@ public sealed class CameraParameter : IEquatable<CameraParameter>
 	[JsonPropertyName("height")]
 	public int? Height { get; set; }
 
+	/// <inheritdoc />
 	public bool Equals(CameraParameter? other)
 	{
 		if (other is null)
@@ -69,6 +70,7 @@ public sealed class CameraParameter : IEquatable<CameraParameter>
 		       Height == other.Height;
 	}
 
+	/// <inheritdoc />
 	public override bool Equals(object? obj)
 	{
 		if (obj is null)
@@ -89,6 +91,7 @@ public sealed class CameraParameter : IEquatable<CameraParameter>
 		return Equals((CameraParameter)obj);
 	}
 
+	/// <inheritdoc />
 	public override int GetHashCode()
 	{
 		return HashCode.Combine(FNumber, FLen, VFov, HFov, VZf, Aperture, Width, Height);

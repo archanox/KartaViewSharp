@@ -4,9 +4,9 @@ internal interface IUser
 {
     Task<object> RetrieveUsers();
 
-    Task<object> GetTheDetailsOfAUser(string userId);
+    Task<object> GetTheDetailsOfAUser(int userId);
 
-    Task<object> DeleteAUser(string userId);
+    Task<object> DeleteAUser(int userId);
 
-    Task<object> GetTheMetricsDetailsOfAUser(string userId);
+    Task<object> GetTheMetricsDetailsOfAUser(int userId);
 }

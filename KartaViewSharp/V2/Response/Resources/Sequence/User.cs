@@ -24,6 +24,7 @@ public sealed class User : IEquatable<User>
 	[JsonConverter(typeof(StringAsDriverTypeJsonConverter))]
 	public DriverType DriverType { get; set; }
 
+	/// <inheritdoc />
 	public bool Equals(User? other)
 	{
 		if (other is null)
@@ -39,6 +40,7 @@ public sealed class User : IEquatable<User>
 		return Id == other.Id && Username == other.Username && FullName == other.FullName && Category == other.Category && DriverType == other.DriverType;
 	}
 
+	/// <inheritdoc />
 	public override bool Equals(object? obj)
 	{
 		if (obj is null)
@@ -59,6 +61,7 @@ public sealed class User : IEquatable<User>
 		return Equals((User)obj);
 	}
 
+	/// <inheritdoc />
 	public override int GetHashCode()
 	{
 		return HashCode.Combine(Id, Username, FullName, (int)Category, (int)DriverType);

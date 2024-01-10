@@ -1,4 +1,5 @@
-﻿using KartaViewSharp.V2.Request;
+﻿using KartaViewSharp.V2.Enums;
+using KartaViewSharp.V2.Request;
 using KartaViewSharp.V2.Response.Resources.Sequence;
 using NetTopologySuite.Geometries;
 
@@ -8,11 +9,11 @@ internal interface ISequence
 {
     Task<SequenceResponse> RetrieveSequences(SequenceQueryFilters filters);
 
-    Task<SequenceResponse> CreateANewSequence();
+    Task<SequenceResponse> CreateANewSequence(string authToken);
 
-    Task<SequenceResponse> GetTheDetailsOfASequence(int sequenceId);
+	Task<SequenceDetailsResponse> GetTheDetailsOfASequence(int sequenceId, SequenceJoinResource[]? join);
 
-    Task<SequenceResponse> UpdateTheDetailsOfASequence(int sequenceId, string authToken);
+	Task<SequenceResponse> UpdateTheDetailsOfASequence(int sequenceId, string authToken);
 
     Task<SequenceResponse> DeleteASequence(int sequenceId);
 

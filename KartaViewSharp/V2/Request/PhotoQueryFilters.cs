@@ -16,8 +16,6 @@ public sealed class PhotoQueryFilters : QueryFilters
 	public int? SequenceIndex { get; set; }
 
 	/// <summary>
-	/// Enum: "photo" "video" "vdb"
-	/// Example: searchSequenceType=vdb
 	/// Type of the sequence. Used only for findNearbyPhotos functionality.
 	/// </summary>
 	public SequenceType? SearchSequenceType { get; set; }

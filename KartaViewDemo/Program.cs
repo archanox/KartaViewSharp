@@ -1,12 +1,12 @@
 ﻿using KartaViewSharp.V2;
 using KartaViewSharp.V2.Request;
 
-namespace KartaView
+namespace KartaView;
+
+internal static class Program
 {
-	internal static class Program
+	static async Task Main()
 	{
-		static async Task Main()
-		{
 			const int sequenceId = 7068281;
 
 			//Initialize the API client
@@ -33,5 +33,4 @@ namespace KartaView
 			var userDetails = await client.GetUserDetails("Pierce");
 			Console.WriteLine(userDetails.Data.FullName);
 		}
-	}
 }

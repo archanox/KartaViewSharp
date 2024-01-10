@@ -25,7 +25,7 @@
 		<Version>1.0.5</Version>
 		<ContinuousIntegrationBuild>True</ContinuousIntegrationBuild>
 		<PackageProjectUrl>https://archanox.github.io/KartaViewSharp/</PackageProjectUrl>
-		<Authors>archanox</Authors>
+		<Authors>Pierce Andjelkovic</Authors>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

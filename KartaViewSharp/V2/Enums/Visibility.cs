@@ -2,6 +2,13 @@
 
 public enum Visibility
 {
-    Private,
-    Public,
+	/// <summary>
+	/// Private visibility.
+	/// </summary>
+	Private,
+
+	/// <summary>
+	/// Public visibility.
+	/// </summary>
+	Public,
 }

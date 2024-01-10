@@ -145,10 +145,10 @@ public sealed class SequenceData : IEquatable<SequenceData>
     [JsonPropertyName("address")]
     public string? Address { get; set; }
 
-    /// <summary>
-    /// The type of the recorded sequence, can be VDB or null.
-    /// </summary>
-    [JsonPropertyName("sequenceType")]
+	/// <summary>
+	/// The type of the recorded sequence, can be <see cref="Enums.SequenceType.Vdb"/> or null.
+	/// </summary>
+	[JsonPropertyName("sequenceType")]
     [JsonConverter(typeof(StringAsNullableSequenceTypeJsonConverter))]
     public SequenceType? SequenceType { get; set; }
 
@@ -311,10 +311,16 @@ public sealed class SequenceData : IEquatable<SequenceData>
     [JsonPropertyName("quality")]
     public string Quality { get; set; }
 
-    /// <summary>
-    /// The state of the file, active when visible to the client, deleted when hidden, delete_queue when marked to be made hidden, inactive when the file does not exist on the disk.
-    /// </summary>
-    [JsonPropertyName("status")]
+	/// <summary>
+	/// The state of the file,
+	/// <para>
+	/// <see cref="Enums.Status.Active"/> when visible to the client,
+	/// <see cref="Enums.Status.Deleted"/> when hidden,
+	/// <see cref="Enums.Status.DeleteQueue"/> when marked to be made hidden,
+	/// <see cref="Enums.Status.Inactive"/> when the file does not exist on the disk.
+	/// </para>
+	/// </summary>
+	[JsonPropertyName("status")]
     [JsonConverter(typeof(StringAsStatusJsonConverter))]
     public Status Status { get; set; }
 
@@ -342,6 +348,7 @@ public sealed class SequenceData : IEquatable<SequenceData>
 	[JsonPropertyName("user")]
 	public User? User { get; set; }
 
+	/// <inheritdoc />
 	public bool Equals(SequenceData? other)
 	{
 		if (other is null)
@@ -403,11 +410,13 @@ public sealed class SequenceData : IEquatable<SequenceData>
 		       Equals(User, other.User);
 	}
 
+	/// <inheritdoc />
 	public override bool Equals(object? obj)
 	{
 		return ReferenceEquals(this, obj) || obj is SequenceData other && Equals(other);
 	}
 
+	/// <inheritdoc />
 	public override int GetHashCode()
 	{
 		var hashCode = new HashCode();
