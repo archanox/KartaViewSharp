@@ -10,7 +10,7 @@ internal interface IDashboard
 {
     Task<object> GetUserTypeMetricIntervalData(UserTypeMetric[] userTypeMetrics, DashboardQueryFilters filters);
 
-    Task<object> GetPlatformMetricIntervalData(PlatformMatric[] platformMetrics);
+    Task<object> GetPlatformMetricIntervalData(PlatformMetric[] platformMetrics);
 
     Task<object> GetUniqueDistanceMetricIntervalData();
 

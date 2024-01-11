@@ -1,6 +1,6 @@
 ﻿namespace KartaViewSharp.V2.Enums;
 
-public enum PlatformMatric
+public enum PlatformMetric
 {
     UnitIosPhotos,
     UnitAndroidPhotos,
