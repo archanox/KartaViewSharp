@@ -45,7 +45,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="ISO3166" Version="1.0.4" />
-		<PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
+		<PackageReference Include="JetBrains.Annotations" Version="2024.2.0" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
