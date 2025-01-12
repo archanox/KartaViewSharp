@@ -39,7 +39,7 @@ jobs:
     - name: altcover 
       run: dotnet test /p:AltCover=true /p:AltCoverAssemblyFilter="testhost|Microsoft"
     - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@v4
+      uses: codecov/codecov-action@v5
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         files: "KartaViewSharp.Tests/coverage.net8.0.xml"
