@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+  pull_request:
 env:
   dotnet-version: 9.0.x
 jobs:
@@ -48,5 +49,5 @@ jobs:
       uses: codacy/codacy-coverage-reporter-action@v1
       with:
         project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-        coverage-reports: "KartaViewSharp.Tests/coverage.*.xml"
+        coverage-reports: "KartaViewSharp.Tests/coverage.net9.0.xml"
       if: ${{ always() }}
