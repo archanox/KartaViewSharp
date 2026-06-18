@@ -42,11 +42,11 @@ jobs:
       uses: codecov/codecov-action@v5
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        files: "KartaViewSharp.Tests/coverage.net8.0.xml"
+        files: "KartaViewSharp.Tests/coverage.*.xml"
       if: ${{ always() }}
     - name: Run codacy-coverage-reporter
       uses: codacy/codacy-coverage-reporter-action@v1
       with:
         project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-        coverage-reports: "KartaViewSharp.Tests/coverage.net8.0.xml"
+        coverage-reports: "KartaViewSharp.Tests/coverage.*.xml"
       if: ${{ always() }}
