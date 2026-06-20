@@ -3,15 +3,15 @@
     {
       "src": [
         {
-          "src": "./KartaViewSharp/",
+          "src": ".",
           "files": [
-            "/bin/Debug/net8.0/**.dll"
+            "KartaViewSharp/KartaViewSharp.csproj"
           ]
         }
       ],
       "dest": "api",
       "properties": {
-        "TargetFramework": "net8.0"
+        "TargetFramework": "net9.0"
       }
     }
   ],
